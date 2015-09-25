@@ -1,0 +1,21 @@
+{
+	"name": "Unified-Inbox",
+	"version": "1.0.0",
+	"authors": [
+		"SitePen"
+	],
+	"description": "Unified Inbox",
+	"main": "main",
+	"moduleType": [
+		"amd"
+	],
+	"private": true,
+	"ignore": [
+		"node_modules",
+		"tests"
+	],
+	"dependencies": {
+		"dstore": "~1.0.2",
+		"mayhem": "SitePen/mayhem-bower#0.3.0-alpha.32"
+	}
+}

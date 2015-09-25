@@ -1,0 +1,48 @@
+<alias tag="avatar" to="app/ui/Avatar">
+<alias tag="attachments" to="mayhem/templating/html!app/ui/messages/AttachmentPreviews.html">
+
+<div class="MessageRow SelectableItem {stateClasses}" on-activate="selectMessage">
+	<div class="MessageRow-wrapper">
+		<a class="MessageRow-star" on-activate="toggleStar"></a>
+		<div class="MessageRow-participants">
+			<when value={contacts} as="contactData">
+				<avatar image="{contactData.image}" connectionType="{connectionType}" on-activate="toggleSelected" />
+				<if condition={contactData.label}>
+					<span class="MessageRow-label MessageRow-label--draft">{contactData.label}</span>
+				<else>
+					<span class="MessageRow-from">{contactData.text}</span>
+					<if condition={contactData.participantCount}>
+						<span class="MessageRow-participantCount">+{contactData.participantCount}</span>
+					</if>
+				</if>
+			</when>
+		</div>
+		<div class="MessageRow-details">
+			<p class="MessageRow-details-item MessageRow-subject">{subject}</p>
+
+			<if condition={hasAttachment}>
+				<span class="MessageRow-details-item MessageRow-attachmentIcons"></span>
+			</if>
+
+			<if condition={isScheduled}>
+				<span class="MessageRow-label">{dateLabel}</span>
+			</if>
+		</div>
+		<div class="MessageRow-ancillary">
+			<if condition={isScheduled}>
+			<else>
+				<span class="MessageRow-date">{smartDate}</span>
+			</if>
+			<!-- Since privacy type icons can also have the orange comment bubble background,
+				the additional HTML element is required. -->
+			<span class="MessageRow-privacy {privacyIconClass}"></span>
+		</div>
+
+		<!-- For performance reasons, one instance of MessageActions is shared between rows. -->
+		<placeholder name="messageActions" />
+	</div>
+
+	<if condition={showAttachments}>
+		<attachments />
+	</if>
+</div>

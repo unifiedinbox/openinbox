@@ -1,0 +1,62 @@
+.header {
+	background-color: $uibGreen;
+	color: $headerColor;
+	height: $headerHeight;
+	padding: 6px 15px;
+	position: relative;
+	vertical-align: middle;
+
+	[class^="icon-"] {
+		display: inline-block;
+		padding-top: 4px;
+		position: relative;
+		vertical-align: middle;
+
+		&:before {
+			padding-right: 10px;
+		}
+	}
+
+	.center {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.Notification-count {
+		background-color: $uibRed;
+		border: 1px solid #fff;
+		border-radius: 50%;
+		font-size: 0.65em;
+		left: 40%;
+		min-height: 15px;
+		min-width: 15px;
+		padding: 1px;
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		z-index: 1;
+	}
+
+	.icon-service-uib,
+	.LabelContainer {
+		cursor: pointer;
+	}
+
+	// DropDown-related styles
+
+	.LabelContainer {
+		// Line up computed bottom of label's boundingClientRect with the bottom of the header bar
+		padding-bottom: 10px;
+	}
+
+	.DropDownContainer {
+		// TODO: Prefer a less kludgy value here, but relying on px seems just as kludgy.
+		top: 145%;
+
+		.NotificationMenu {
+			width: $headerNotificationDropDownWidth;
+		}
+	}
+}

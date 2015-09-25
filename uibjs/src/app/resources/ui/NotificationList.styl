@@ -1,0 +1,113 @@
+.NotificationList-container,
+.NotificationList {
+	background-color: $dropDownBackgroundColor;
+	color: #666;
+	font-weight: 200;
+	height: 75vh;
+	min-height: 350px;
+	overflow: hidden;
+	padding-bottom: $gridRowHeight;
+	position: relative;
+	// TODO: Once the master search functionality is incorporated into master, some of these
+	// styles will be revisited.
+	text-align: left;
+	width: 340px;
+}
+
+.NotificationList-container {
+	border: 1px solid #eee;
+	box-shadow: 0 2px 2px #eee;
+}
+
+.NotificationList {
+	border: 0;
+	overflow-y: scroll;
+}
+
+.NotificationList-markAllAsRead {
+	background-color: #fff;
+	border-top: 1px solid $notificationMenuBorderColor;
+	bottom: 0;
+	color: $uibBlue;
+	cursor: pointer;
+	display: block;
+	height: $gridRowHeight;
+	line-height: $gridRowHeight;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+}
+
+.Notification-toggleStatus {
+	color: $uibBlue;
+	display: none;
+	font-size: 0.8em;
+	position: absolute;
+	right: 5px;
+	top: 1px;
+}
+
+.Notification {
+	// TODO: The border and background color for unread notifications is currently a guess. What are
+	// they actually supposed to be?
+	background-color: #eee;
+	border-bottom: 1px solid #fff;
+	min-height: $avatarSize + 20;
+	padding: 10px 25px 10px ($avatarSize + 15);
+	position: relative;
+
+	.Avatar {
+		position: absolute;
+		left: 10px;
+		top: 10px;
+	}
+
+	&.is-read {
+		background-color: #fff;
+		border-bottom-color: #eee;
+	}
+
+	&:hover {
+		background-color: $uibLightGreen;
+		cursor: pointer;
+
+		.Notification-toggleStatus {
+			display: inherit;
+		}
+	}
+}
+
+// dgrid/OnDemandList includes a `<div class="dgrid-preload">` as its final element.
+// So to remove the border from the last .Notification, we select the second-to-last
+// `<div>` in the scrollable area.
+.NotificationList .dgrid-content div:nth-last-child(2) {
+	border-bottom: 0;
+}
+
+.Notification-subject,
+.Notification-message,
+.Notification-date {
+	margin: 0 0 5px 0;
+}
+
+.Notification-message {
+	font-size: 0.95em;
+	line-height: 1.2em;
+	height: 2.4em;
+	overflow: hidden;
+	position: relative;
+
+	// TODO: There is probably a better way to manage the ellipsis...
+	&:after {
+		background: inherit;
+		bottom: 0.1em;
+		content: '\02026';
+		position: absolute;
+		right: 4px;
+	}
+}
+
+.Notification-date {
+	color: #999;
+	font-size: 0.9em;
+}

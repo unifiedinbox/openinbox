@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>AlertList Widget Test Page</title>
+		<link rel="stylesheet" href="../../resources/main.css">
+		<style>
+		.AlertList {
+			margin-top: 50px;
+			margin-left: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		<p>
+			This test allows a maximum of 3 alerts to display simultaneously.
+		</p>
+
+		<script src="dojoConfig.js"></script>
+		<script src="../../../dojo/dojo.js"></script>
+		<script>
+			require([
+				'app/tests/ui/AlertList',
+				'dojo/on'
+			], function (app, on) {
+				app.run().then(function () {
+					var alertList = app.get('ui').get('view');
+
+					alertList.add({
+						message: 'test 1: will time out',
+						command: {
+							commit: function () {
+								console.log('test 1 has been committed');
+							}
+						}
+					});
+
+					alertList.add({
+						message: 'test 2: will not time out',
+						isPermanent: true,
+						command: {
+							commit: function () {
+								console.log('test 2 has been committed');
+							}
+						}
+					});
+
+					alertList.add({
+						message: 'test 3 happened.',
+						command: {
+							commit: function () {
+								console.log('test 3 has been committed');
+							},
+							rollback: function () {
+								console.log('test 3 has been undone');
+							}
+						}
+					});
+
+					alertList.add({
+						message: 'test 4: Draft has been saved.',
+						undoLabel: 'Delete?',
+						command: {
+							commit: function () {
+								console.log('test 4 has been committed');
+							},
+							rollback: function () {
+								console.log('test 4 has been undone (Draft deleted)');
+							}
+						}
+					});
+
+					alertList.add({
+						message: 'test 5: Failure:',
+						commitLabel: 'Retry?',
+						undoLabel: 'Open?',
+						command: {
+							commit: function () {
+								console.log('test 5 has been committed');
+
+								alertList.add({
+									message: 'test 5-Retry: Success!',
+									command: {
+										commit: function () {
+											console.log('test 5-Retry has been committed');
+										}
+									}
+								});
+							},
+							rollback: function () {
+								console.log('test 5 has been undone (Open)');
+							}
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

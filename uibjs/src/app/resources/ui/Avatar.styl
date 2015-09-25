@@ -1,0 +1,84 @@
+.Avatar,
+.RecipientAvatar {
+	background-size: cover;
+	border-radius: $avatarSize;
+	color: $avatarTextColor;
+	display: inline-block;
+	position: relative;
+	height: $avatarSize;
+	line-height: $avatarSize;
+	width: $avatarSize;
+	text-align: center;
+	vertical-align: middle;
+
+	&:before {
+		icon-font-class('uib-services-icons');
+		border: $avatarBorderSize solid $avatarBorderColor;
+		border-radius: $avatarConnectionSize;
+		color: $avatarTextColor;
+		font-size: $avatarConnectionFontSize;
+		line-height: 1.5; // Override 1 from icon-font-class mixin
+		position: absolute;
+		bottom: $avatarConnectionOffset;
+		height: $avatarConnectionSize;
+		left: $avatarConnectionOffset;
+		width: $avatarConnectionSize;
+		text-align: center;
+		vertical-align: middle;
+	}
+}
+
+.Avatar-no-image {
+	background-color: $avatarInitialsBackgroundColor;
+}
+
+.Avatar-default {
+	background-color: $avatarDefaultBackgroundColor;
+	font-family: 'uib-app-related-icons';
+}
+
+// Selection Manager styles
+$SelectableIndicator {
+	background: none !important; // Override inline background-image applied by Avatar module
+	font-size: 0;
+
+	&:before {
+		background: transparent;
+		border: $selectedAvatarBorderWidth solid $hoverAvatarColor;
+		border-radius: $selectedAvatarSize;
+		content: ''; // icon-app-whitelist (checkmark)
+		display: block;
+		position: absolute;
+		bottom: 4px;
+		height: $selectedAvatarSize;
+		left: 4px;
+		width: $selectedAvatarSize;
+	}
+}
+
+.with-SelectableItem.is-inSelectionMode .Avatar {
+	@extends $SelectableIndicator;
+}
+
+.SelectableItem {
+	.Avatar:hover,
+	// TODO: Choose one or the other.
+	&.selected .Avatar,
+	&.is-selected .Avatar {
+		@extends $SelectableIndicator;
+	}
+
+	&.selected .RecipientCheckbox:before,
+	&.selected .Avatar:before,
+	&.is-selected .Avatar:before {
+		icon-font-class('uib-app-related-icons');
+
+		border-color: $selectedAvatarColor;
+		color: $selectedAvatarColor;
+		content: '5'; // icon-app-whitelist (checkmark)
+		font-size: $selectedAvatarFontSize;
+		line-height: $selectedAvatarSize; // Override 1 from icon-font-class mixin
+		text-align: center;
+		vertical-align: middle;
+	}
+}

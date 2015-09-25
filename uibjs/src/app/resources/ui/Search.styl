@@ -1,0 +1,30 @@
+.search-container {
+	background-color: $searchBackgroundColor;
+	border: 0;
+	border-bottom: 1px solid $searchBorderColor;
+	color: $searchTextColor;
+	cursor: text;
+	font-size: pointToRem(12);
+	position: relative;
+	width: 100%;
+
+	.dijitInputField {
+		padding: 10px 10px 10px 30px;
+		width: 100%;
+	}
+
+	.dijitPlaceHolder.dijitInputField {
+		font-style: normal;
+	}
+
+	&:before {
+		@extend .icon-app-search-up:before;
+		color: $gridIconColor;
+		font-size: 0.9em;
+		position: absolute;
+		left: 10px;
+		top: 12px;
+
+		icon-font-class('uib-app-related-icons');
+	}
+}

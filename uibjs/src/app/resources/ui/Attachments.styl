@@ -1,0 +1,120 @@
+.AddAttachment {
+	display: inline-block;
+	position: relative;
+
+	.Attachments-input {
+		// Absolutely position the input over the attachment icon and make it transparent,
+		// so clicks will hit the input but the user will see the icon
+		overflow: hidden;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: $bodyFontSize;
+	}
+}
+
+.Attachments {
+	display: inline-block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.Attachments-item {
+	display: inline-block;
+
+	[class^="icon-app-"] {
+		display: inline-block;
+
+		&:before {
+			padding-right: 4px;
+		}
+	}
+
+	.LabelContainer {
+		cursor: pointer;
+	}
+}
+
+.Attachments-label {
+	vertical-align: middle;
+}
+
+// Class applied to divs added for previews of image attachments
+.Attachments-image {
+	background: transparent center no-repeat;
+	background-size: contain;
+	display: inline-block;
+	height: $attachmentsMaxImageHeight;
+	width: $attachmentsMaxImageWidth;
+	vertical-align: middle;
+}
+
+// Styles specific to attachment previews.
+.Attachments--preview {
+	margin: 10px;
+
+	.Attachments-item {
+		margin-bottom: 15px;
+		margin-right: 20px;
+		padding-right: 15px;
+		vertical-align: top;
+		max-width: 175px;
+	}
+
+	.Attachments-label {
+		font-size: 0.9em;
+		line-height: 1.5;
+		margin: 0;
+	}
+
+	.Attachments-name {
+		display: block;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.Attachments-size {
+		float: right;
+		// TODO: is there really not a better way to vertically-align floated text of different sizes?
+		font-size: 0.9em;
+		position: relative;
+		top: 2px;
+	}
+
+	.Attachments-preview {
+		position: relative;
+
+		.DropDown {
+			position: absolute;
+			right: -20px;
+			top: 10px;
+			z-index: 1;
+
+			.LabelContainer {
+				color: #ccc;
+			}
+		}
+	}
+
+	.Attachments-image,
+	.Attachments-icon {
+		height: $attachmentPreviewHeight;
+		width: $attachmentPreviewWidth;
+	}
+
+	.Attachments-icon {
+		background: $attachmentPreviewBackgroundColor;
+
+		&:before {
+			color: $attachmentPreviewIconColor;
+			display: block;
+			font-size: 2em;
+			line-height: $attachmentPreviewHeight;
+			text-align: center;
+		}
+	}
+}

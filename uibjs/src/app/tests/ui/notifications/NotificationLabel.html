@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Notification Label Widget Test Page</title>
+		<link rel="stylesheet" href="../../../resources/main.css">
+	</head>
+	<body class="header">
+		<div style="margin-bottom: 20px;">
+			<button id="incrementCount">Add Notification</button>
+			<button id="decrementCount">Remove Notification</button>
+		</div>
+
+		<script src="../dojoConfig.js"></script>
+		<script>dojoConfig.baseUrl = '../../../../';</script>
+		<script src="../../../../dojo/dojo.js"></script>
+		<script>
+			require([ 'app/tests/ui/notifications/NotificationLabel' ]);
+		</script>
+	</body>
+</html>

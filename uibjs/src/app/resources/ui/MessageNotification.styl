@@ -1,0 +1,63 @@
+.MessageNotification {
+	background-color: $messageNotificationBackgroundColor;
+	border: 1px solid $messageNotificationBorderColor;
+	color: $messageNotificationTextColor;
+	cursor: pointer;
+	font-size: pointToRem(12);
+	height: $gridRowHeight;
+	overflow: hidden;
+	text-align: center;
+	transition: height 0.75s ease;
+	width: 100%;
+
+	&.is-hidden {
+		border: 0;
+		display: inherit;
+		height: 0px;
+	}
+}
+
+.MessageNotification-total,
+.MessageNotification-connection {
+	display: inline-block;
+	line-height: $gridRowHeight;
+	margin-right: 15px;
+
+	&:before {
+		display: inline-block;
+		position: relative;
+	}
+}
+
+.MessageNotification-total {
+	&:before {
+		@extend .icon-app-arrow-1:before;
+		font-size: pointToRem(14);
+		margin-right: 5px;
+		top: 2px;
+
+		icon-font-class('uib-app-related-icons');
+	}
+
+	&:after {
+		content: ':';
+	}
+}
+
+.MessageNotification-connection {
+	position: relative;
+
+	&:before {
+		border-radius: 50%;
+		color: #fff;
+		font-size: pointToRem(9);
+		margin-right: 5px;
+		padding: 3px;
+
+		icon-font-class('uib-services-icons');
+	}
+
+	&.is-hidden {
+		display: none;
+	}
+}

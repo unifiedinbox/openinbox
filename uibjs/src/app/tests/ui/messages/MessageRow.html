@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Message Row Widget Test Page</title>
+		<link rel="stylesheet" href="../../../resources/main.css">
+		<style>
+			body {
+				margin: 0 auto;
+				width: 770px;
+			}
+
+			/* The following classes are applied in ./MessageRowTestPageTemplate.html */
+			.Actions {
+				display: block;
+				margin: 20px 0;
+			}
+
+			.Actions-field {
+				margin-bottom: 10px;
+			}
+
+			.Actions-toggler {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="../dojoConfig.js"></script>
+		<script>dojoConfig.baseUrl = '../../../../';</script>
+		<script src="../../../../dojo/dojo.js"></script>
+		<script>
+			require([ 'app/tests/ui/messages/MessageRow' ]);
+		</script>
+	</body>
+</html>

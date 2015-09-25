@@ -1,0 +1,64 @@
+<alias tag="ui-label" to="mayhem/ui/dom/Label">
+<alias tag="drop-down" to="app/ui/DropDown">
+<alias tag="folder-list" to="app/ui/folders/FolderList">
+
+<div class="MessageActions {stateClasses}">
+	<if condition={hideArchive}>
+	<else>
+		<ui-label action="archive" formattedText="<div class=\"messageAction icon-app-archive-message\" title=\"{app.i18n.messages.done()}\"><div>" />
+	</if>
+
+	<if condition={hideFolders}>
+	<else>
+		<drop-down isOpen="{isChildOpen}"
+			><property name="label"
+				><div class="messageAction icon-app-folder-open" title="{app.i18n.messages.move()}"></div
+			></property
+			><property name="dropDown"><folder-list collection="{app.user.folders}" recentlyUsedFolders="{app.user.session.recentlyUsedFolders}" showRecentlyUsed="true" showSearch="true" showArchives="true" containerClass="ContextMenu--folder" excluded="{excludedFolders}" search="{folderSearch}" /></property
+		></drop-down>
+	</if>
+
+	<if condition={hideMarkAs}>
+	<else>
+		<drop-down isOpen="{isChildOpen}"
+			><property name="label"
+				><div class="messageAction icon-app-mark-as-up" title="{app.i18n.messages.markAs()}"></div
+			></property
+			><property name="dropDown"><ul>
+				<for each="{markAsActions}" as="markAsAction">
+					<li class="{markAsAction.iconClass}">
+						<ui-label action="{markAsAction.property}" actionValue="{markAsAction.value}" text="{markAsAction.text}" />
+					</li>
+				</for>
+			</ul></property
+		></drop-down>
+	</if>
+
+	<if condition={hideDistribute}>
+	<else>
+		<drop-down isOpen="{isChildOpen}"
+			><property name="label"
+				><div class="messageAction icon-app-distribute" title="{app.i18n.messages.distribute()}"></div
+			></property
+			><property name="dropDown"><ul>
+				<li class="icon-app-forward"><ui-label action="compositionAction" actionValue="forward" text="{app.i18n.messages.forward()}" /></li>
+			</ul></property
+		></drop-down>
+	</if>
+
+	<if condition={hideTrash}>
+	<else>
+		<ui-label action="trash" formattedText="<div class=\"messageAction icon-app-delete\" title=\"{app.i18n.messages.delete()}\"></div>" />
+	</if>
+
+	<if condition={hideMore}>
+	<else>
+		<drop-down isOpen="{isChildOpen}"
+			><property name="label"><div class="messageAction icon-app-menu" title="{app.i18n.messages.more()}"></div></property
+			><property name="dropDown"><ul>
+				<li class="icon-app-reply"><ui-label action="compositionAction" actionValue="reply" text="{app.i18n.messages.reply()}" /></li>
+				<li class="icon-app-reply-all"><ui-label action="compositionAction" actionValue="replyAll" text="{app.i18n.messages.replyAll()}" /></li>
+			</ul></property
+		></drop-down>
+	</if>
+</div>

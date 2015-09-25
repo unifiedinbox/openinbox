@@ -1,0 +1,49 @@
+.MasterSearch {
+	height: $headerSearchHeight;
+	max-width: 770px;
+	width: 100%;
+
+	.search-container {
+		background-color: lighten($uibGreen, 10%);
+
+		&:before {
+			color: $headerColor;
+			top: 8px;
+			z-index: 1;
+		}
+	}
+
+	.dijitInputContainer {
+		height: $headerSearchHeight;
+	}
+
+	.dijitTextBox {
+		border: none;
+		width: 770px;
+	}
+
+	.dijitInputInner,
+	.dijitPlaceHolder {
+		color: $headerColor;
+		font-style: normal;
+		line-height: $headerSearchHeight;
+		position: absolute;
+		top: 0;
+		left: 0;
+		// !important needed to override Dijit styles
+		padding: 0 10px 0 30px !important;
+	}
+}
+
+.ContactList--autocomplete {
+	border: 1px solid $headerSearchBorderColor;
+	border-top: 0;
+	box-shadow: 0 2px 2px $headerSearchBorderColor;
+	color: #000;
+	width: 100%;
+
+	.is-highlighted {
+		@extend .is-highlighted;
+		transition: none;
+	}
+}

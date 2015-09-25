@@ -1,0 +1,37 @@
+.AlertList {
+	left: 50%;
+	position: absolute;
+	top: $gridRowHeight;
+	transform: translate(-50%, 0);
+	width: $alertWidth;
+	z-index: 999;
+
+	.dgrid {
+		border: none;
+	}
+}
+
+.Alert {
+	background-color: $alertBackgroundColor;
+	// TODO: The box shadow does not look good when positioned over an underlay.
+	// box-shadow: 0 2px 2px $dropDownBorderColor;
+	color: $alertColor;
+	margin-bottom: 3px;
+	padding: 8px 26px 8px 8px;
+	position: relative;
+
+	.Alert-action,
+	.Alert-undo {
+		cursor: pointer;
+		text-decoration: underline;
+	}
+
+	.Alert-close {
+		color: $alertIconColor;
+		cursor: pointer;
+		font-size: $alertIconSize;
+		position: absolute;
+		right: 4px;
+		top: 3px;
+	}
+}

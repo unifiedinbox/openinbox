@@ -1,0 +1,71 @@
+.Inbox {
+	margin: 0 auto;
+	overflow: hidden; // force to contain children
+	width: 770px;
+
+	// TODO: This, along with the equivalent master search positioning styles, should be
+	// updated to not rely on tranform/absolute positioning.
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, 0);
+}
+
+.Inbox-background {
+	background-size: cover;
+	position: fixed;
+	height: 100%;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+.Inbox-content {
+	&.has-overlay {
+		&:before {
+			background: rgba(0, 0, 0, 0.5);
+			content: '';
+			height: 100%;
+			position: fixed;
+			top: 0;
+			width: 100%;
+		}
+	}
+
+	&.is-inCompositionMode {
+		&:before {
+			z-index: 1;
+		}
+	}
+}
+
+.PlaceholderMessage {
+	display: flex;
+
+	align-items: center;
+	background: rgba(255, 255, 255, 0.5);
+	color: #999;
+	flex-direction: column;
+	font-size: 1.5em;
+	height: 200px;
+	justify-content: center;
+	line-height: 1.5;
+	margin-top: $gridRowHeight;
+}
+
+.PlaceholderMessage-heading,
+.PlaceholderMessage-text {
+	margin: 0;
+}
+
+.PlaceholderMessage-heading {
+	font-weight: normal;
+	line-height: 2;
+}
+
+.InboxZero:before {
+	icon-font-class('uib-app-related-icons');
+
+	@extend .icon-app-smiley:before;
+
+	font-size: 1.8em;
+}

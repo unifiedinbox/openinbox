@@ -1,0 +1,24 @@
+<alias tag="ui-label" to="mayhem/ui/Label">
+<alias tag="conversation-list" to="app/ui/conversations/ConversationList">
+<alias tag="message-notification" to="app/ui/MessageNotification">
+<alias tag="message-row" to="app/ui/messages/MessageRow">
+<alias tag="quick-reply" to="app/ui/messages/QuickReply">
+
+<div class="Conversation">
+	<message-row model="{rowModel}" />
+	<conversation-list collection="{collection}" message="{message}" />
+	<message-notification notifications="{app.notifications.message}" />
+
+	<if condition={showQuickReply}>
+		<quick-reply message="{message}" replyType="{replyType}" />
+	<else>
+		<div class="Conversation-actions"
+			>{app.i18n.messages.clickTo()} <span class="Conversation-action"
+			><ui-label text="{app.i18n.messages.reply()}" on-activate="reply" /></span
+			>, <span class="Conversation-action"
+			><ui-label text="{app.i18n.messages.replyAll()}" on-activate="replyAll" /></span
+			> {app.i18n.messages.or()} <span class="Conversation-action"
+			><ui-label text="{app.i18n.messages.forward()}" on-activate="forward" /></span>
+		</div>
+	</if>
+</div>

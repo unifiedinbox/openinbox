@@ -1,0 +1,10 @@
+<alias tag="avatar" to="app/ui/Avatar">
+
+<div class="AccountRow">
+	<avatar image={app.user.data.image} />
+	<div class="AccountRow-name">
+		<div class="AccountRow-realname">{app.user.data.fullName}</div>
+		<div class="AccountRow-username">~{app.user.data.username}</div>
+	</div>
+	<div class="AccountRow-logout"><a href="{app.router.createUrl('login', { action: 'logout' })}">{app.i18n.messages.logOut()}</a></div>
+</div>

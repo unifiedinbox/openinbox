@@ -1,0 +1,65 @@
+.ConversationList {
+	.dgrid {
+		height: auto;
+	}
+}
+
+.ConversationRow {
+	background: #fff;
+	color: $conversationRowColor;
+	border-bottom: 1px solid $conversationRowBorderColor;
+	padding-top: 5px;
+}
+
+.ConversationRow-header {
+	padding: 0 10px;
+	position: relative;
+
+	.Avatar {
+		position: absolute;
+		top: $conversationRowAvatarTop;
+	}
+}
+
+.ConversationRow-participants {
+	display: inline-block;
+	position: relative;
+  	vertical-align: middle;
+	font-size: 18px;
+	margin-left: $conversationRowParticipantsMarginLeft;
+	width: $conversationRowParticipantWidth;
+}
+
+.ConversationRow-emails {
+	font-size: 12px;
+	color: #aaa;
+}
+
+.ConversationRow-ancillary {
+	display: inline-block;
+	line-height: $gridRowHeight;
+	padding-right: $conversationRowColumnRightMargin;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.ConversationRow-date {
+	position: absolute;
+	right: 25px;
+	top: -3px;
+}
+
+.ConversationRow-options {
+	color: #aaa;
+	cursor: pointer;
+}
+
+.ConversationRow-body {
+	margin-left: 10px;
+}
+
+.ConversationRow-viewSource {
+	text-decoration: none;
+	color: $conversationRowColor;
+}

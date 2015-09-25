@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Message List Widget Test Page</title>
+		<link rel="stylesheet" href="../../../resources/main.css">
+		<style>
+			body {
+				background-image: url('../../../resources/images/background.jpg');
+				background-size: cover;
+				margin: 0 auto;
+				width: 770px;
+			}
+
+			.Actions {
+				display: block;
+				margin: 20px 0;
+			}
+			.TestPageMessageActions {
+				background: #f3f9ec;
+				margin-bottom: 10px;
+				text-align: center;
+			}
+			#login {
+				background: rgba(255,255,255,0.8);
+				margin: 20px 0;
+				padding: 20px;
+			}
+			#login > label {
+				display: block;
+			}
+		</style>
+		</style>
+	</head>
+	<body>
+		<form id="login">Login info (can be anything non-blank when using mocks):
+			<label>Username: <input name="username"></label>
+			<label>Password: <input name="password" type="password"></label>
+			<button type="submit">Log In</button>
+		</form>
+
+		<script src="../dojoConfig.js"></script>
+		<script>dojoConfig.baseUrl = '../../../../';</script>
+		<script src="../../../../dojo/dojo.js"></script>
+		<script>
+			require([ 'app/tests/ui/messages/MessageList' ]);
+		</script>
+	</body>
+</html>

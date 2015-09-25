@@ -1,0 +1,35 @@
+.ConversationDialog {
+	// Unfortunately the `!importants` are necessary in order to force the Dialog to be
+	// positioned correctly.
+	left: 50% !important;
+	min-width: 500px !important;
+	top: ($gridRowHeight * 2) !important;
+	transform: translate(-50%, 0);
+	width: 70% !important;
+}
+
+.Conversation {
+	background: $conversationBackgroundColor;
+
+	.MessageRow {
+		.Avatar,
+		.MessageRow-from,
+		.MessageRow-participants {
+			display: none;
+		}
+	}
+
+	.MessageRow-wrapper {
+		cursor: default;
+	}
+}
+
+.Conversation-actions {
+	border-top: 1px solid $uibGreen;
+	padding: 8px;
+}
+
+.Conversation-action {
+	color: $conversationActionColor;
+	cursor: pointer;
+}

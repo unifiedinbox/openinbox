@@ -1,0 +1,33 @@
+.AccountRow {
+	padding: 10px;
+	text-align: left;
+	white-space: nowrap;
+
+	.Avatar {
+		border-radius: $headerAvatarSize;
+		height: $headerAvatarSize;
+		line-height: $headerAvatarSize;
+		width: $headerAvatarSize;
+	}
+
+	.AccountRow-name,
+	.AccountRow-logout {
+		display: inline-block;
+		padding-top: 4px;
+		vertical-align: top;
+	}
+
+	.AccountRow-name {
+		color: $bodyColor;
+		padding-left: 10px;
+		padding-right: 15px;
+	}
+
+	.AccountRow-username {
+		font-size: $accountRowUsernameSize;
+	}
+
+	.AccountRow-logout a {
+		color: $uibBlue;
+	}
+}

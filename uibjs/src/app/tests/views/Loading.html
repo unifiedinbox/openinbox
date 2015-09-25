@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Loading test page</title>
+        <link rel="stylesheet" href="../../resources/main.css">
+    </head>
+    <body>
+        <div>
+            <input type="text" id="message-text" value="" />
+            <button id="messageButton">Update message</button>
+        </div>
+        <div>
+            <input type="text" id="author-text" value="" />
+            <button id="authorButton">Update author name</button>
+        </div>
+        <script src="../ui/dojoConfig.js"></script>
+        <script src="../../../dojo/dojo.js"></script>
+        <script>
+            require([ 'app/tests/views/Loading', 'dojo/on' ], function (app, on) {
+                app.run().then(function () {
+                    var loading = app.get('ui').get('view');
+
+                    function registerClickHandlers(hash) {
+                        for (var k in hash) {
+                            on(document.getElementById(k), 'click', hash[k]);
+                        }
+                    }
+
+                    var messageText = document.getElementById('message-text');
+                    messageText.value = loading.get('model').get('message');
+                    var authorText = document.getElementById('author-text');
+                    authorText.value = loading.get('model').get('author');
+
+                    registerClickHandlers({
+                        authorButton: function () {
+                            loading.get('model').set('author', authorText.value);
+                        },
+                        messageButton: function () {
+                            loading.get('model').set('message', messageText.value);
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

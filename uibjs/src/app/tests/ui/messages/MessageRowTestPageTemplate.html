@@ -1,0 +1,27 @@
+<alias tag="message-row" to="app/ui/messages/MessageRow">
+
+<!-- This separate test HTML template is used to allow pointer events on MessageRow.html to be properly tested. -->
+<div class="Actions">
+	<div class="Actions-field">
+		<button class="Actions-toggler" id="toggleAttachments">Toggle attachments</button>
+		<button class="Actions-toggler" id="toggleAction">Toggle forwarded/replied</button>
+		<button class="Actions-toggler" id="toggleComments">Toggle comments</button>
+	</div>
+
+	<div class="Actions-field">
+		<label for="setPrivacy">Change privacy:</label>
+		<select id="setPrivacy">
+			<option value="team">Team</option>
+			<option value="business">Business</option>
+			<option value="single">Private</option>
+			<option value="public">Public</option>
+		</select>
+	</div>
+
+	<div class="Actions-field">
+		<input type="text" name="subject" value="Disgust intentions sea morality ubermensch." />
+		<button id="setSubject">Update subject</button>
+	</div>
+</div>
+
+<message-row />

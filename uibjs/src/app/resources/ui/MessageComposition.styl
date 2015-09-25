@@ -1,0 +1,197 @@
+.MessageCompositionContainer {
+	left: 50%;
+	position: absolute;
+	top: $gridRowHeight;
+	transform: translate(-50%, 0);
+	width: 80%;
+	z-index: 999;
+}
+
+.MessageComposition {
+	background-color: white;
+}
+
+.MessageComposition-dropDownBar {
+	height: 40px;
+	color: $messageCompositionTitleColor;
+	position: relative;
+
+	.DropDown {
+		display: block;
+		width: 125px;
+		margin: 0 auto;
+		padding-left: 5px;
+		cursor: pointer;
+
+		.LabelContainer {
+			height: 40px;
+			padding: 10px 5px 10px 9px;
+		}
+	}
+}
+
+.MessageComposition-priority {
+	color: $uibBlue;
+	position: absolute;
+	right: 10px;
+	font-size: 12px;
+}
+
+.MessageComposition-priority-list {
+	position: absolute;
+	left: 170px;
+	top: 0;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	box-shadow: 0 2px 2px #ddd;
+}
+
+.MessageComposition-draftSaveOnClose {
+	position: absolute;
+	right: 10px;
+}
+
+li.MessageComposition-DropDown-item {
+	width: 170px;
+	color: #888;
+
+	&.selected {
+		color: black;
+	}
+}
+
+.MessageComposition-close {
+	color: white;
+	position: absolute;
+	top: 8px;
+	right: 10px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.MessageComposition-to,
+.MessageComposition-subject,
+.MessageComposition-cc,
+.MessageComposition-bcc {
+	padding-left: 10px;
+	border-bottom: 1px solid #EEE;
+	color: #AAA;
+	position: relative;
+}
+
+.MessageComposition-to,
+.MessageComposition-cc,
+.MessageComposition-bcc {
+
+	.RecipientsInput {
+		display: inline-block;
+		.MasterSearch {
+			border: none;
+			color: black;
+		}
+	}
+}
+
+.MessageComposition-subject {
+	padding: 10px;
+	.dijitTextBox {
+		border: none;
+		color: black;
+		width: calc(100% - 40px);
+	}
+}
+
+.MessageComposition-cc-toggle,
+.MessageComposition-bcc-toggle {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+
+.MessageComposition-cc-close,
+.MessageComposition-bcc-close {
+	position: absolute;
+	right: 20px;
+	top: -5px;
+	cursor: pointer;
+
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid grey;
+}
+
+.MessageComposition-subject {
+	.dijitPlaceHolder {
+		color: #AAA;
+		font-style: normal;
+	}
+}
+
+.MessageComposition-body {
+	padding: 5px;
+
+	textarea {
+		border: none;
+		color: #333;
+		font: 1em/1.3 $bodyFontFamily;
+		height: 500px;
+	}
+}
+
+.MessageComposition-actions {
+	height: 50px;
+	list-style: none;
+	margin: 0;
+	padding: 10px;
+	position: relative;
+
+	.dijitButtonNode {
+		border: 0;
+	}
+
+	.dijitButton {
+		background-color: $uibBlue;
+		color: white;
+		height: 30px;
+		padding: 0 8px;
+		margin: 0;
+		vertical-align: top;
+	}
+
+	.dijitButtonText {
+		line-height: 30px;
+	}
+}
+
+.MessageComposition-action {
+	display: inline-block;
+	line-height: 30px;
+	margin-right: 10px;
+	text-align: center;
+	vertical-align: top;
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.MessageComposition-action--move {
+	.DropDown {
+		margin-left: 3px;
+	}
+
+	.LabelContainer {
+		color: $uibBlue;
+	}
+}
+
+.MessageComposition-action--trash {
+	bottom: 10px;
+	color: grey;
+	cursor: pointer;
+	position: absolute;
+	right: 10px;
+}

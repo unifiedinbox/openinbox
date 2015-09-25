@@ -1,0 +1,261 @@
+.MessageList {
+	background: #fff;
+	height: auto;
+
+	.dgrid {
+		border: 0;
+		height: auto;
+
+		.dgrid-scroller {
+			max-height: 30em;
+			overflow-y: auto;
+		}
+	}
+
+	&.is-inSearchMode {
+		.Attachments {
+			display: block;
+		}
+	}
+}
+
+.MessageRow {
+	// Manually specifying the background allows the MessageActions widget to inherit
+	// the background color of the message row.
+	background: #fff;
+	border-bottom: 1px solid $messageRowBorderColor;
+	color: $messageRowColor;
+
+	&.is-selected {
+		background: $uibLightGreen;
+	}
+
+	&.is-unread {
+		.MessageRow-participants,
+		.MessageRow-date,
+		.MessageRow-subject {
+			font-weight: bold;
+		}
+	}
+
+	&.is-forwarded,
+	&.is-replied {
+		.MessageRow-ancillary:before {
+			icon-font-class('uib-app-related-icons');
+
+			margin-right: 3px;
+			vertical-align: middle;
+		}
+	}
+
+	&.is-forwarded .MessageRow-ancillary:before {
+		@extend .icon-app-forward:before;
+	}
+
+	&.is-replied .MessageRow-ancillary:before {
+		@extend .icon-app-reply:before;
+	}
+
+	.Attachments--preview {
+		display: none;
+		margin-left: 30%;
+	}
+}
+
+.MessageRow-wrapper {
+	// Inheriting the background color is necessary for correctly styling child elements
+	// when the MessageRow's state changes (e.g., `is-selected`).
+	background: inherit;
+	cursor: pointer;
+	height: $gridRowHeight;
+	padding: 0 10px;
+	position: relative;
+
+	.Avatar {
+		margin-right: $messageRowColumnRightMargin;
+	}
+
+	.MessageActions {
+		background: inherit;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 2;
+
+		.messageAction:before {
+			vertical-align: top;
+		}
+	}
+}
+
+.MessageRow-participants,
+.MessageRow-ancillary,
+.MessageRow-details,
+.MessageRow-details-item,
+.MessageRow-star {
+	display: inline-block;
+	line-height: $gridRowHeight;
+	padding-right: $messageRowColumnRightMargin;
+}
+
+.MessageRow-star {
+	cursor: pointer;
+	display: inline-block;
+	visibility: hidden;
+
+	&:before {
+		icon-font-class('uib-app-related-icons');
+
+		@extend .icon-app-star-inactive:before;
+
+		color: $messageRowStarColor;
+		font-size: 1.2em;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	&:hover:before {
+		color: $messageRowHoverStarColor;
+	}
+}
+
+.MessageRow:hover .MessageRow-star {
+	visibility: visible;
+}
+
+.MessageRow.is-starred {
+	.MessageRow-star {
+		visibility: visible;
+
+		&:before {
+			@extend .icon-app-star-active:before;
+
+			color: $messageRowActiveStarColor;
+		}
+	}
+}
+
+.MessageRow-label {
+	color: $uibGreen;
+	font-size: 0.9em;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+.MessageRow-label--draft {
+	color: $uibRed;
+}
+
+.MessageRow-participants {
+	width: 25%;
+}
+
+.MessageRow-participantCount {
+	color: #999;
+	font-size: 0.85em;
+	font-weight: normal;
+}
+
+.MessageRow-details {
+	display: inline-flex;
+	flex-direction: row;
+	padding-right: 20px;
+	width: 60%;
+}
+
+.MessageRow-details-item{
+	flex: 0 0 auto;
+	padding-right: 5px;
+
+	&:last-child {
+		padding-right: 0;
+	}
+}
+
+.MessageRow-from,
+.MessageRow-subject {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	// Undo the baseline reset caused by overflow: hidden
+	vertical-align: bottom;
+	white-space: nowrap;
+}
+
+.MessageRow-from {
+	display: inline-block;
+	// Interpolation is necessary here, otherwise the variable is never parsed.
+	max-width: 'calc(100% - %s)' % ($avatarSize + 20)
+}
+
+.MessageRow-subject {
+	margin: 0;
+	max-width: 100%;
+}
+
+.MessageRow-attachmentIcons:before {
+	icon-font-class('uib-app-related-icons');
+	@extend .icon-app-attachment:before;
+
+	color: $gridIconColor;
+}
+
+.MessageRow-ancillary {
+	position: absolute;
+	right: 0;
+}
+
+.MessageRow-privacy {
+	margin-left: 3px;
+	z-index: 1;
+
+	&:before,
+	&:after {
+		icon-font-class('uib-app-related-icons');
+
+		vertical-align: middle;
+	}
+
+	// TODO: The dimensions and positioning of privacy type icon + comment background
+	// are manually specified. Is there a more dynamic way to manage this?
+	&.has-comments {
+		display: inline-block;
+		position: relative;
+		text-align: center;
+		width: 18px;
+
+		&:before {
+			color: #fff;
+			font-size: 0.55em;
+			position: relative;
+			top: -1px;
+			z-index: 1;
+		}
+
+		&:after {
+			@extend .icon-app-talk-chat:before;
+
+			color: $uibOrange;
+			font-size: 1.3em;
+			line-height: $gridRowHeight;
+			left: 0;
+			position: absolute;
+			z-index: -1;
+		}
+	}
+}
+
+.MessageRow-privacy--public:before {
+	@extend .icon-app-public:before;
+}
+
+.MessageRow-privacy--single:before {
+	@extend .icon-app-private:before;
+}
+
+.MessageRow-privacy--business:before {
+	@extend .icon-app-business:before;
+}
+
+.MessageRow-privacy--team:before {
+	@extend .icon-app-team:before;
+}

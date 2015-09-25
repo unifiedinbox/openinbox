@@ -1,0 +1,136 @@
+.FolderListContainer {
+	border: 1px solid $folderListBorderColor;
+
+	&.is-hidden,
+	.is-hidden {
+		display: none;
+	}
+}
+
+.FolderList {
+	border: none;
+	border-bottom: 1px solid $folderListBorderColor;
+
+	&:last-of-type {
+		border-bottom: none;
+	}
+}
+
+/**
+ * Styles for individual Folder row widgets. Created to be dropped into a container widget
+ * so properties such as width are not set. Until we have more details on the required
+ * font stack, font size is also not set (the exception being the message count element,
+ * which is set to a smaller font size).
+ */
+.Folder {
+	background-color: $gridRowBackgroundColor;
+	color: $gridRowColor;
+	cursor: pointer;
+	font-size: pointToRem(14);
+	height: $gridRowHeight;
+	position: relative;
+	z-index: 1;
+
+	&.is-highlighted,
+	&:hover {
+		background-color: $gridRowHoverBackgroundColor;
+		color: $uibGreen;
+
+		> .Folder-unreadCount {
+			background-color: $uibGreen;
+		}
+	}
+
+	&:before {
+		icon-font-class('uib-app-related-icons');
+
+		font-size: pointToRem(18);
+		line-height: $gridRowHeight;
+		position: absolute;
+		left: 10px;
+		z-index: -1;
+	}
+}
+
+.Folder-link {
+	display: inline-block;
+	line-height: $gridRowHeight;
+	padding-left: 45px;
+}
+
+.Folder-unreadCount {
+	background-color: $folderUnreadCountColor;
+	border-radius: 5px;
+	color: #fff;
+	font-size: pointToRem(12);
+	padding: 1px 5px;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: -1;
+}
+
+.FolderList.is-unreadCountHidden {
+	.Folder-unreadCount {
+		display: none;
+	}
+}
+
+.Folder--inbox:before {
+	@extend .icon-app-inbox:before;
+}
+.Folder--drafts:before {
+	@extend .icon-app-feather:before;
+}
+.Folder--sent:before {
+	@extend .icon-app-sent:before;
+}
+.Folder--outbox:before {
+	@extend .icon-app-outbox:before;
+}
+.Folder--templates:before {
+	@extend .icon-app-template:before;
+}
+.Folder--junk:before {
+	@extend .icon-app-spam-shield:before;
+}
+.Folder--trash:before {
+	@extend .icon-app-delete:before;
+}
+.Folder--archive:before {
+	@extend .icon-app-archive-message:before;
+}
+
+// user-created folders
+.Folder--personal:before,
+.Folder--shared:before {
+	@extend .icon-app-folder:before;
+}
+.Folder--shared:after,
+.Folder--business:after {
+	color: $gridIconColor;
+	font-size: pointToRem(12);
+	position: absolute;
+	right: 10px;
+	top: 10px;
+
+	icon-font-class('uib-app-related-icons');
+}
+.Folder--shared:after {
+	@extend .icon-app-team:before;
+}
+.Folder--business:after {
+	@extend .icon-app-business:before;
+}
+
+// Styles for specific instances of FolderList
+.ContextMenu--folder {
+	// Move menu in MessageActions
+	width: 230px;
+
+	.FolderList-group {
+		max-height: 320px;
+		overflow-y: auto;
+	}
+}

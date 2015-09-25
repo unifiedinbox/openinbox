@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Message Store Test Page</title>
+		<link rel="stylesheet" href="../../../resources/main.css">
+		<style>
+			.dgrid {
+				margin: 0 auto 0 auto;
+				height: 500px;
+				width: 1000px;
+			}
+			.field-_isRead,
+			.field-_isStarred,
+			.field-_hasAttachment,
+			.field-_priority {
+				text-align: center;
+				width: 26px;
+			}
+			.field-_isRead,
+			.field-_isStarred {
+				cursor: pointer;
+			}
+			.field-_avatar {
+				width: 50px;
+			}
+			.field-_avatar img {
+				height: 40px;
+				width: 40px;
+			}
+			.field-_from {
+				width: 160px;
+			}
+			.field-_labels {
+				width: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>This is a page which uses dgrid to test app/models/stores/Message.</p>
+		<p>(The grid itself is not a component in the application's UI.)</p>
+		<form id="login">Login info (can be anything non-blank when using mocks):
+			<label>Username: <input name="username"></label>
+			<label>Password: <input name="password" type="password"></label>
+			<button type="submit">Log In</button>
+		</form>
+		<script src="../../ui/dojoConfig.js"></script>
+		<script>
+			dojoConfig.baseUrl = '../../../../';
+			dojoConfig.requestProvider = 'dojo/request/registry';
+		</script>
+		<script src="../../../../dojo/dojo.js"></script>
+		<script>
+			require([ 'app/tests/models/stores/Message' ]);
+		</script>
+	</body>
+</html>

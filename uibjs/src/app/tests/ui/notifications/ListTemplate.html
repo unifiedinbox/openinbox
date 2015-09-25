@@ -1,0 +1,15 @@
+<alias tag="drop-down" to="app/ui/DropDown">
+<alias tag="notification-label" to="app/ui/notifications/NotificationLabel">
+<alias tag="notification-list" to="app/ui/notifications/NotificationList">
+
+<div class="header">
+	<div class="left">
+		<div class="icon-service-uib" on-activate="toggleSidebar">{app.i18n.messages.title()}</div>
+	</div>
+	<div class="right">
+		<drop-down
+			><property name="label"><notification-label collection="{app.user.mentions}" /></property
+			><property name="dropDown"><notification-list collection="{app.user.mentions}" /></property
+		></drop-down>
+	</div>
+</div>

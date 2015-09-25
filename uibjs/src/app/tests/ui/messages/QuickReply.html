@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>QuickReply Widget Test Page</title>
+		<link rel="stylesheet" href="../../../resources/main.css">
+		<style>
+			body {
+				background: #fff;
+			}
+			.QuickReply {
+				border: 1px solid darkgrey;
+				margin: 200px 0 0 200px;
+				width: 700px;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="../dojoConfig.js"></script>
+		<script>
+			dojoConfig.baseUrl = '../../../../';
+			dojoConfig.requestProvider = 'dojo/request/registry';
+		</script>
+		<script src="../../../../dojo/dojo.js"></script>
+		<script>
+			require([ 'app/tests/ui/messages/QuickReply' ]);
+		</script>
+	</body>
+</html>

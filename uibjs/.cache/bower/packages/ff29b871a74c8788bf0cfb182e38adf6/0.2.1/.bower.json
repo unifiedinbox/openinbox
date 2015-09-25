@@ -1,0 +1,13 @@
+{
+  "name": "xstyle",
+  "homepage": "https://github.com/kriszyp/xstyle",
+  "version": "0.2.1",
+  "_release": "0.2.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.1",
+    "commit": "3c6221edbea34aa9a734bf92b31b4f21c3e9abf5"
+  },
+  "_source": "git://github.com/kriszyp/xstyle.git",
+  "_target": "0.2.1"
+}

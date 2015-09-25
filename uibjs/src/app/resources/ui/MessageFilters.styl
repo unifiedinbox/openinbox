@@ -1,0 +1,131 @@
+.MessageFilters {
+	font-size: 0.9em;
+	padding-bottom: 0;
+	padding-top: $gridRowHeight;
+	position: relative;
+	/**
+	 * Animating the padding-bottom property allows sort/filter bar to be faded into view
+	 * without it taking up space while it is hidden.
+	 */
+	transition: padding-bottom 0.3s ease;
+
+	&.is-open {
+		margin-bottom: $gridRowHeight;
+		padding-bottom: $gridRowHeight;
+
+		.MessageFilters-menu {
+			opacity: 1;
+		}
+	}
+
+	&.is-inSearchMode {
+		.right {
+			display: none;
+		}
+	}
+}
+
+/**
+ * The toggler has absolute positioning in order to maintain the proper grid row height
+ * and still allow the link to be positioned closer to the menu bar, per the design.
+ */
+.MessageFilters-toggler {
+	color: #fff;
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	text-shadow: #666 0 0 3px;
+	top: 10px;
+}
+
+.MessageFilters-toggler,
+.MessageFilter {
+	cursor: pointer;
+}
+
+.MessageFilters-toggler:after,
+.MessageFilter--dropdown:after {
+	icon-font-class('uib-app-related-icons');
+
+	@extends .icon-app-arrow-3:before;
+
+	font-size: 1.5em;
+	position: relative;
+	top: 2px;
+}
+
+.is-open .MessageFilters-toggler:after {
+	@extends .icon-app-arrow-1:before;
+}
+
+.MessageFilters-menu {
+	background: #fff;
+	box-shadow: 0 2px 2px #ccc;
+	color: #666;
+	height: $gridRowHeight;
+	line-height: $gridRowHeight;
+	opacity: 0;
+	position: absolute;
+	transition: opacity 0.3s ease;
+	width: 100%;
+}
+
+.MessageFilter {
+	display: inline-block;
+	padding: 0 10px;
+}
+
+.MessageFilter-list-item {
+	line-height: 1;
+	padding: 0;
+
+	.dijitButton,
+	.dijitButtonNode {
+		border: 0;
+		margin: 0;
+	}
+
+	.dijitButton {
+		display: block;
+		padding: 12px;
+	}
+}
+
+// TODO: these state filters are pretty ugly, but given how the Mayhem view tree works,
+// I'm really not sure how to apply simple `is-selected` classes to the individual links.
+.is-filtered--allMessages .MessageFilter--all,
+.is-filtered--myMessages .MessageFilter--my,
+.is-filtered--newMessages .MessageFilter--new,
+.is-filtered--allResults .MessageFilter--allResults,
+.is-filtered--from .MessageFilter--from,
+.is-filtered--to .MessageFilter--to,
+.is-filtered--subject .MessageFilter--subject,
+.is-filtered--attachments .MessageFilter--attachments {
+	background: $uibBlue;
+	color: #fff;
+}
+
+.MessageFilters-dropDownActions {
+	background: #fff;
+	border-top: 1px solid $dropDownBorderColor;
+	bottom: 0;
+	height: $gridRowHeight + 1;
+	left: 0;
+	padding: 5px;
+	position: absolute;
+	width: 100%;
+
+	.dijitButton,
+	.dijitButtonNode {
+		border: 0;
+		margin: 0;
+		vertical-align: baseline;
+	}
+
+	.dijitButton {
+		background: $uibBlue;
+		color: #fff;
+		line-height: $gridRowHeight - 10;
+		padding: 0 15px;
+	}
+}

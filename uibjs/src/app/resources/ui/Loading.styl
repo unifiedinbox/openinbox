@@ -1,0 +1,33 @@
+.Loading {
+    background-color: $loadingBackgroundColor;
+    width: $loadingWidth;
+    padding: 25px;
+    text-align: center;
+    centered-box();
+
+    .Loading-message {
+        font-size: 24px;
+        font-weight: bold;
+        font-style: italic;
+        margin: 0 5px 30px;
+
+        &:before {
+            content: '\201c';
+        }
+
+        &:after {
+            content: '\201d';
+        }
+    }
+
+    .Loading-spinner {
+        background: url('../images/loading.gif') no-repeat center;
+        width: $loadingSpinnerSize;
+        height: $loadingSpinnerSize;
+        margin: 35px auto;
+    }
+
+    .copyright {
+        margin-top: 20px;
+    }
+}

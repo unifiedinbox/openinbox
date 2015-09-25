@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ContactList Widget Test Page</title>
+		<link rel="stylesheet" href="../../../resources/main.css">
+		<style>
+			.ContactList {
+				border: 1px solid #ddd;
+				box-shadow: 0 0 3px #ddd;
+				margin: 20px;
+				width: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>Set image:
+			<button id="setImageUrl">URL</button>
+			<button id="setImageInitials">Initials</button>
+		</div>
+		<div>Set connectionType:
+			<button id="setConnectionNone">none (don't show icon)</button>
+			<button id="setConnectionEmail">email</button>
+			<button id="setConnectionTwitter">twitter</button>
+			<button id="setConnectionFacebook">facebook</button>
+			<button id="setConnectionLinkedin">linkedin</button>
+		</div>
+		<div>
+			<input type="text" id="displayName">
+			<button id="changeDisplayName">change display name</button>
+		</div>
+		<div>
+			<button id="toggleSearch">toggle search</button>
+		</div>
+		<div>
+			<button id="toggleMultiSelect">toggle multiselect</button>
+		</div>
+		<div>
+			<button id="logValue">log value</button>
+			<button id="setValue">set value</button>
+		</div>
+		<script src="../dojoConfig.js"></script>
+		<script>dojoConfig.baseUrl = '../../../../';</script>
+		<script src="../../../../dojo/dojo.js"></script>
+		<script>
+			require([
+				'dojo/on',
+				'app/models/Contact',
+				'app/tests/ui/contacts/ContactList'
+			], function (on, Contact, app) {
+				app.run().then(function () {
+					function registerClickHandlers(hash) {
+						for (var k in hash) {
+							on(document.getElementById(k), 'click', hash[k]);
+						}
+					}
+
+					registerClickHandlers({
+						setImageUrl: function () {
+							var contactList = app.get('ui').get('view');
+							var selected = contactList.get('value');
+							if (selected.data.length === 0) {
+								alert('select one or more contacts');
+							}
+							else {
+								selected.data.forEach(function (contact) {
+									contact.set('image', 'https://avatars0.githubusercontent.com/u/78551?v=3&s=460');
+								});
+							}
+						},
+						setImageInitials: function () {
+							var contactList = app.get('ui').get('view');
+							var selected = contactList.get('value');
+							if (selected.data.length === 0) {
+								alert('select one or more contacts');
+							}
+							else {
+								selected.data.forEach(function (contact) {
+									var name = contact.get('displayName');
+									if (name) {
+										var nameParts = name.split(/\s+/);
+										var initials = nameParts[0][0].toUpperCase();
+										if (nameParts.length > 1) {
+											initials += nameParts[nameParts.length - 1][0].toUpperCase();
+										}
+										contact.set('image', initials);
+									}
+									else {
+										contact.set('image', '?');
+									}
+								});
+							}
+						},
+						setConnectionNone: function () {
+							var contactList = app.get('ui').get('view');
+							var selected = contactList.get('value');
+							if (selected.data.length === 0) {
+								alert('select one or more contacts');
+							}
+							else {
+								selected.data.forEach(function (contact) {
+									contact.set('accounts', []);
+								});
+							}
+						},
+						setConnectionEmail: function () {
+							var contactList = app.get('ui').get('view');
+							var selected = contactList.get('value');
+							if (selected.data.length === 0) {
+								alert('select one or more contacts');
+							}
+							else {
+								selected.data.forEach(function (contact) {
+									contact.set('accounts', [ { eType: 'E' } ]);
+								});
+							}
+						},
+						setConnectionTwitter: function () {
+							var contactList = app.get('ui').get('view');
+							var selected = contactList.get('value');
+							if (selected.data.length === 0) {
+								alert('select one or more contacts');
+							}
+							else {
+								selected.data.forEach(function (contact) {
+									contact.set('accounts', [ { eType: 'A' } ]);
+								});
+							}
+						},
+						setConnectionFacebook: function () {
+							var contactList = app.get('ui').get('view');
+							var selected = contactList.get('value');
+							if (selected.data.length === 0) {
+								alert('select one or more contacts');
+							}
+							else {
+								selected.data.forEach(function (contact) {
+									contact.set('accounts', [ { eType: 'M' } ]);
+								});
+							}
+						},
+						setConnectionLinkedin: function () {
+							var contactList = app.get('ui').get('view');
+							var selected = contactList.get('value');
+							if (selected.data.length === 0) {
+								alert('select one or more contacts');
+							}
+							else {
+								selected.data.forEach(function (contact) {
+									contact.set('accounts', [ { eType: 'L' } ]);
+								});
+							}
+						},
+						changeDisplayName: function () {
+							var contactList = app.get('ui').get('view');
+							var selected = contactList.get('value');
+							if (selected.data.length === 0) {
+								alert('select one or more contacts');
+							}
+							else {
+								selected.data.forEach(function (contact) {
+									contact.set('displayName', document.getElementById('displayName').value);
+								});
+							}
+						},
+						toggleSearch: function () {
+							var contactList = app.get('ui').get('view');
+							contactList.set('showSearch', !contactList.get('showSearch'));
+						},
+						toggleMultiSelect: function () {
+							var contactList = app.get('ui').get('view');
+							contactList.set('multiSelect', !contactList.get('multiSelect'));
+							contactList.set('selectionMode',
+								contactList.get('selectionMode') === 0 ? 1 : 0);
+						},
+						logValue: function () {
+							console.log('Selected values:');
+							var contactList = app.get('ui').get('view');
+							contactList.get('value').forEach(function (contact) {
+								console.log(contact.get('displayName'));
+							});
+						},
+						setValue: function () {
+							var contactList = app.get('ui').get('view');
+							Contact.store.get(1).then(function (contact) {
+								contactList.set('value', [ contact ]);
+							});
+						}
+					});
+
+					var intervalId = setInterval(function () {
+						var contactList = app.get('ui').get('view');
+						if (contactList) {
+							clearInterval(intervalId);
+
+							app.get('binder').createBinding(contactList.get('value'), '*').observe(function (change) {
+								var type = change.added ? 'added' : 'removed';
+								var name = change[type][0].get('displayName');
+								document.getElementById('displayName').value = name;
+								console.log('selection ' + type + ':', name);
+							});
+						}
+					}, 100);
+				});
+			});
+		</script>
+	</body>
+</html>

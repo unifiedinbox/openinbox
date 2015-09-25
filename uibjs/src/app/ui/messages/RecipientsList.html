@@ -1,0 +1,8 @@
+<alias tag="avatar" to="app/ui/Avatar">
+
+<ul class="RecipientsList">
+	<for each={recipients} as="recipient"><li class="RecipientsList-recipient">
+		<avatar image={recipient.contact.image} connectionType={recipient.selectedConnectionType} />
+		{recipient.contact.displayName}
+	</li></for>
+</ul>

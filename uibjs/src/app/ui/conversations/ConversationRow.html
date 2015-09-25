@@ -1,0 +1,37 @@
+<alias tag="avatar" to="app/ui/Avatar">
+<alias tag="drop-down" to="app/ui/DropDown">
+<alias tag="ui-label" to="mayhem/ui/dom/Label">
+
+<div class="ConversationRow">
+	<div class="ConversationRow-header">
+		<when value={contactImage} as="image">
+			<avatar image="{image}" connectionType="{message.connectionType}" />
+		</when>
+		<div class="ConversationRow-participants">
+			<div>{fromName}</div>
+			<div class="ConversationRow-emails">
+				<span>to: {to}</span>
+				<if condition="{hasCc}">
+					<span>cc: {cc}</span>
+				</if>
+				<if condition="{hasBcc}">
+					<span>bcc: {bcc}</span>
+				</if>
+			</div>
+		</div>
+		<div class="ConversationRow-ancillary">
+			<span class="ConversationRow-date">{smartDate}</span>
+			<drop-down
+				><property name="label"><span class="icon-app-menu ConversationRow-options"></span></property
+				><property name="dropDown"><ul>
+					<li action="viewSource">
+						<a target="_blank" href="{viewSourceLink}" class="ConversationRow-viewSource">{app.i18n.messages.viewSource()}</a>
+					</li>
+				</ul></property
+			></drop-down>
+		</div>
+	</div>
+	<div class="ConversationRow-body">
+		<p class="ConversationRow-body-item">{body}</p>
+	</div>
+</div>

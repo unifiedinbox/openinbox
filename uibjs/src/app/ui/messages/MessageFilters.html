@@ -1,0 +1,65 @@
+<alias tag="ui-button" to="mayhem/ui/dom/form/Button">
+<alias tag="ui-label" to="mayhem/ui/Label">
+<alias tag="drop-down" to="app/ui/DropDown">
+<alias tag="connection-list" to="app/ui/messages/MessageConnectionList">
+
+<div class="MessageFilters {stateClasses}">
+	<a class="MessageFilters-toggler" on-activate="toggleMenu">{linkText}</a>
+
+	<!-- The `id` is used to set the "Source" drop down anchor point. -->
+	<div id="messageFiltersMenu" class="MessageFilters-menu">
+		<if condition={isInSearchMode}>
+			<for each={searchActions} as="searchAction">
+				<a class="MessageFilter MessageFilter--{searchAction.filter}">
+					<ui-label actionType="searchFilter" actionValue="{searchAction.filter}" text="{searchAction.text}" />
+				</a>
+			</for>
+		<else>
+			<a class="MessageFilter MessageFilter--all">
+				<when value={counts} as="filterCounts">
+					<ui-label actionType="filter" actionValue="allMessages" text="{app.i18n.messages.allMessages()}{filterCounts.unreadMessageCount}" />
+				<pending>
+					<ui-label actionType="filter" actionValue="allMessages" text="{app.i18n.messages.allMessages()}" />
+				</when>
+			</a>
+			<a class="MessageFilter MessageFilter--my">
+				<when value={counts} as="filterCounts">
+					<ui-label actionType="filter" actionValue="myMessages" text="{app.i18n.messages.myMessages()}{filterCounts.myMessageCount}" />
+				<pending>
+					<ui-label actionType="filter" actionValue="myMessages" text="{app.i18n.messages.myMessages()}" />
+				</when>
+			</a>
+			<a class="MessageFilter MessageFilter--new">
+				<when value={counts} as="filterCounts">
+					<ui-label actionType="filter" actionValue="newMessages" text="{app.i18n.messages.newMessages()}{filterCounts.newMessageCount}" />
+				<pending>
+					<ui-label actionType="filter" actionValue="newMessages" text="{app.i18n.messages.newMessages()}" />
+				</when>
+			</a>
+			<drop-down anchorNodeId="messageFiltersMenu" dropDownClassName="with-ConnectionList"
+				><property name="label"
+					><div class="MessageFilter MessageFilter--dropdown">{app.i18n.messages.source()}: All</div
+				></property
+				><property name="dropDown"><connection-list collection="{connections}" /></property
+			></drop-down>
+
+			<!-- TODO: "Custom" menu out of scope for SOW1 -->
+		</if>
+
+		<div class="right">
+			<drop-down dropDownClassName="with-MessageFilters"
+				><property name="label"
+					><div class="MessageFilter MessageFilter--dropdown">{app.i18n.messages.sortedBy()}: {selectedSortLabel}</div
+				></property
+				><property name="dropDown"><ul class="MessageFilter-list">
+					<li class="MessageFilter-list-item">
+						<ui-button actionType="sort" actionValue="date" label="{app.i18n.messages.byDate()}" />
+					</li>
+					<li class="MessageFilter-list-item">
+						<ui-button actionType="sort" actionValue="sender" label="{app.i18n.messages.bySender()}" />
+					</li>
+				</ul></property
+			></drop-down>
+		</div>
+	</div>
+</div>

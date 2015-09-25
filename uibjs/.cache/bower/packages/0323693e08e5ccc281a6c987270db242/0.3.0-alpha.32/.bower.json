@@ -1,0 +1,33 @@
+{
+  "name": "mayhem",
+  "description": "A framework for rich Internet applications.",
+  "version": "0.3.0-alpha.32",
+  "homepage": "https://github.com/SitePen/mayhem",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [],
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "dgrid": "0.3.17",
+    "dijit": "1.10.4",
+    "dojo": "1.10.4",
+    "dstore": "1.0.2",
+    "esprima": "1.2.2",
+    "intl": "0.1.4",
+    "intl-messageformat": "1.0.4",
+    "put-selector": "0.3.5",
+    "xstyle": "0.2.1"
+  },
+  "typescript": {
+    "definition": "dist/mayhem.d.ts"
+  },
+  "_release": "0.3.0-alpha.32",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.3.0-alpha.32",
+    "commit": "0a94c549a10ab859f02b9a779de81175ff09d31e"
+  },
+  "_source": "git://github.com/SitePen/mayhem-bower.git",
+  "_target": "0.3.0-alpha.32"
+}

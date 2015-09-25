@@ -1,0 +1,63 @@
+.RecipientsInput {
+	padding: -($avatarConnectionOffset); // Provide enough room to clear avatar connection icon
+
+	.MasterSearch {
+		display: inline-block;
+		width: auto;
+	}
+
+	.search-container {
+		background-color: $searchBackgroundColor;
+		width: $recipientsInputWidth;
+
+		&:before {
+			content: '';
+		}
+
+		.dijitInputField {
+			padding: 0;
+			width: auto;
+		}
+
+		.dijitInputInner,
+		.dijitPlaceHolder {
+			color: $bodyColor;
+			// !important needed to override Dijit and MasterSearch styles
+			padding: 0 !important;
+		}
+	}
+}
+
+.RecipientsList {
+	display: inline-block;
+	line-height: 2.5em; // Provide breathing room for avatars and connection type icons
+	margin: 0;
+	padding-left: 0;
+}
+
+.RecipientsList-recipient {
+	display: inline-block;
+	padding: 0 $recipientPadding;
+}
+
+.ContactList--recipients,
+.ConnectionList--recipient {
+	// From DropDownContainer (don't use @extend because we don't need all of its nested selectors)
+	box-shadow: 0 2px 2px $dropDownBorderColor;
+	position: absolute;
+	z-index: 999; // ensure it's above Dijit Dialog overlay and other things trying to be on top of the overlay
+}
+
+.ContactList--recipients {
+	width: $recipientsInputWidth;
+}
+
+.ConnectionList--recipient {
+	border: 1px solid $dropDownBorderColor;
+	display: none;
+
+	&.is-open {
+		// This is only needed for ConnectionList, since the ContactList has is-hidden via MasterSearch
+		display: block;
+	}
+}

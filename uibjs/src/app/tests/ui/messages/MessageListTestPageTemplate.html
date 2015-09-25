@@ -1,0 +1,28 @@
+<alias tag="message-list" to="app/ui/messages/MessageList">
+<alias tag="actions" to="app/ui/messages/BulkMessageActions">
+
+<div class="Actions">
+	<button id="toggleInboxZero">Toggle Inbox Zero</button>
+	<button id="toggleZeroResults">Toggle Zero Search Results</button>
+</div>
+
+<if condition={isActionsVisible}>
+	<div class="TestPageMessageActions">
+		<actions model="{messageActionsModel}" />
+	</div>
+</if>
+
+<if condition="{isMessageListVisible}">
+	<message-list collection="{messages}" notifications="{app.user.notifications.message}" />
+</if>
+
+<if condition="{isInboxZeroVisible}">
+	<div class="PlaceholderMessage InboxZero">
+		<if condition={isInSearchMode}>
+			<p class="PlaceholderMessage-text InboxZero-noResults">{app.i18n.messages.noMessages()}</p>
+		<else>
+			<h2 class="PlaceholderMessage-heading">{app.i18n.messages.congratulations()}</h2>
+			<p class="PlaceholderMessage-text">{app.i18n.messages.inboxZero()}</p>
+		</if>
+	</div>
+</if>

@@ -1,0 +1,62 @@
+<alias tag="add-attachment" to="app/ui/AddAttachment" />
+<alias tag="drop-down" to="app/ui/DropDown" />
+<alias tag="folder-list" to="app/ui/folders/FolderList" />
+<alias tag="recipient-list" to="app/ui/contacts/RecipientList" />
+<alias tag="ui-button" to="mayhem/ui/form/Button" />
+<alias tag="ui-label" to="mayhem/ui/Label" />
+<alias tag="ui-text" to="mayhem/ui/form/Text" />
+
+<div class="QuickReply">
+	<div class="QuickReply_top">
+		<drop-down
+			><property name="label"><i class="QuickReply_replyIcon {replyIcon}"></i></property
+			><property name="dropDown"
+				><div>
+					<ui-label action="reply" formattedText='<div class="item QuickReply_action0-{replyType} icon-app-reply">{app.i18n.messages.reply()}</div>' />
+					<ui-label action="replyAll" formattedText='<div class="item QuickReply_action1-{replyType} icon-app-reply-all">{app.i18n.messages.replyAll()}</div>' />
+					<ui-label action="forward" formattedText='<div class="item icon-app-forward">{app.i18n.messages.forward()}</div>' />
+				</div
+			></property
+		></drop-down>
+
+		<drop-down
+			><property name="label"
+				>{lowerCaseTo} <span class="QuickReply_recipientList">{toDisplay}</span
+			></property
+			><property name="dropDown"
+				><recipient-list collection={recipients} message={target} initialRecipients={initialRecipients}
+			/></property
+		></drop-down>
+		<i class="icon-app-arrows-expand" on-activate="expand"></i>
+	</div>
+
+	<ui-text isMultiLine="true" value={{body}} />
+
+	<placeholder name="attachmentsWidget" />
+
+	<ul class="MessageComposition-actions">
+		<li class="MessageComposition-action"
+			><ui-button label={app.i18n.messages.sendMessage()} on-activate="send"
+		/></li>
+		<li class="MessageComposition-action"
+			><add-attachment collection={attachmentsModel.attachments}
+		/></li>
+		<li class="MessageComposition-action MessageComposition-action--move"
+			><span class="MoveToFolderCheckbox is-checked-{moveToFolder}" on-activate="toggleMoveToFolder"
+				><ui-label text={app.i18n.messages.moveTo()}
+			/></span
+			><drop-down
+				><property name="label">{selectedFolderLabel}</property
+				><property name="dropDown"
+					><folder-list collection="{app.user.folders}"
+								 recentlyUsedFolders="{app.user.session.recentlyUsedFolders}" showRecentlyUsed="true"
+								 showSearch="false" showArchives="true" containerClass="ContextMenu--folder"
+								 excluded=["Drafts", "Outbox", "Sent"]
+				/></property
+			></drop-down
+		></li>
+		<li class="MessageComposition-action MessageComposition-action--trash"
+			><span class="icon-app-delete" on-activate="delete"></span
+		></li>
+	</ul>
+</div>

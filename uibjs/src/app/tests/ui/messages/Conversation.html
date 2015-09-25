@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Conversation Widget Test Page</title>
+		<link rel="stylesheet" href="../../../resources/main.css">
+		<style>
+			body {
+				background-image: url('../../../resources/images/background.jpg');
+				background-size: cover;
+				margin: 0 auto;
+				width: 770px;
+			}
+			.Conversation {
+				margin: 120px auto 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="../dojoConfig.js"></script>
+		<script>dojoConfig.baseUrl = '../../../../';</script>
+		<script>dojoConfig.requestProvider = 'dojo/request/registry';</script>
+		<script src="../../../../dojo/dojo.js"></script>
+		<script>
+			require([ 'app/tests/ui/messages/Conversation' ]);
+		</script>
+	</body>
+</html>

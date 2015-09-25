@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ConnectionList Widget Test Page</title>
+		<link rel="stylesheet" href="../../../resources/main.css">
+	</head>
+	<body>
+		<div>
+			<input id="title">
+			<button id="setTitle">Set title</button>
+		</div>
+		<script src="../dojoConfig.js"></script>
+		<script>dojoConfig.baseUrl = '../../../../';</script>
+		<script src="../../../../dojo/dojo.js"></script>
+		<script>
+			require([
+				'dojo/on',
+				'app/models/Connection',
+				'app/tests/ui/connections/ConnectionList'
+			], function (on, Connection, app) {
+				app.run().then(function () {
+					function registerClickHandlers(hash) {
+						for (var k in hash) {
+							on(document.getElementById(k), 'click', hash[k]);
+						}
+					}
+
+					registerClickHandlers({
+						setTitle: function () {
+							app.get('ui').get('view').set('title', document.getElementById('title').value);
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

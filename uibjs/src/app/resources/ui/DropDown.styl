@@ -1,0 +1,71 @@
+.DropDown {
+	display: inline-block;
+	position: relative;
+}
+
+.DropDownContainer {
+	display: none;
+	position: absolute;
+	z-index: 2;
+
+	&.open {
+		display: block;
+		z-index: 999; // ensure it's above Dijit Dialog overlay and other things trying to be on top of the overlay
+	}
+
+	background-color: $dropDownBackgroundColor;
+	border: 1px solid $dropDownBorderColor;
+	box-shadow: 0 2px 2px $dropDownBorderColor;
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.item,
+	li {
+		border-bottom: 1px solid $dropDownBorderColor;
+		color: $dropDownItemTextColor;
+		cursor: pointer;
+		padding: $dropDownItemPadding;
+		white-space: nowrap;
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		&:before {
+			color: $dropDownItemIconColor;
+			font-size: $dropDownItemIconSize;
+			padding-right: $dropDownItemIconPadding;
+			vertical-align: bottom;
+		}
+
+		&:hover {
+			background-color: $dropDownItemHoverBackgroundColor;
+		}
+	}
+
+	// Styles specific to when containing other widgets...
+	&.with-ConnectionList {
+		width: 770px;
+
+		.ContactList-group {
+			border-top: 1px solid $dropDownBorderColor;
+			height: 50vh;
+			min-height: 300px;
+			overflow-y: scroll;
+		}
+	}
+
+	&.with-MessageFilters {
+		width: 172px;
+
+		// TODO: Refactor the dropdown styles to remove the need for this level
+		// of specificity.
+		.MessageFilter-list-item {
+			padding: 0;
+		}
+	}
+}

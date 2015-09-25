@@ -1,0 +1,14 @@
+<alias tag="ui-label" to="mayhem/ui/Label">
+<alias tag="avatar" to="app/ui/Avatar">
+
+<div class="Notification {stateClass}" on-activate="selectNotification">
+	<avatar image="{comment.contact.image}" />
+	<span class="Notification-toggleStatus">
+		<ui-label id="toggleStatus" text="{markAsText}" on-activate="toggleStatus" />
+	</span>
+	<div class="Notification-text">
+		<p class="Notification-subject"><ui-label formattedText="{subject}" /></p>
+		<p class="Notification-message">{comment.message}</p>
+	</div>
+	<p class="Notification-date">{smartDate}</p>
+</div>

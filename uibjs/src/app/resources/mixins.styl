@@ -1,0 +1,24 @@
+centered-box() {
+	// Adds styles for widgets which look like dialogs but aren't technically dialogs
+	// (e.g. the Login and Loading widgets)
+
+	box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    margin-left: auto;
+    margin-right: auto;
+	position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+icon-font-class(family) {
+	// Applies styles for elements that should use a specific icon font
+	font-family: family !important;
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-variant: normal !important;
+	text-transform: none !important;
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}

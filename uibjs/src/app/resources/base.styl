@@ -1,0 +1,80 @@
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	background: $bodyBackgroundColor;
+	color: $bodyColor;
+	font: $bodyFontSize $bodyFontFamily;
+	font-smoothing: antialiased;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.copyright {
+	margin-top: 10px;
+	text-align: center;
+
+	&:before {
+		content: '©';
+		padding-right: 5px;
+	}
+}
+
+.splash-background {
+	background-image: url('images/background-blur.jpg');
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+}
+
+// TODO: If we keep adding state classes, there might be justification for moving them to a separate file.
+.is-hidden {
+	display: none;
+}
+
+.is-highlighted {
+	background-color: $uibOpaqueGreen;
+}
+
+.header {
+	z-index: 1;
+
+	.icon-app-write {
+		cursor: pointer;
+	}
+}
+
+.content {
+	height: 'calc(100% - %s)' % $headerHeight;
+	z-index: 0;
+}
+
+.sidebar {
+	background-color: $bodyBackgroundColor;
+	height: 100%;
+	width: 185px;
+
+	.FolderListContainer {
+		height: 'calc(100% - %s)' % $folderPaneFooterHeight;
+		overflow: auto;
+	}
+}
+
+.AppLogo {
+	bottom: 20px;
+	position: fixed;
+	right: 20px;
+}

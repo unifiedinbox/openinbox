@@ -1,0 +1,50 @@
+<alias tag="button" to="mayhem/ui/form/Button">
+<alias tag="checkbox" to="mayhem/ui/form/Checkbox">
+<alias tag="ui-label" to="mayhem/ui/Label">
+<alias tag="textbox" to="mayhem/ui/form/Text">
+
+<div class="splash-background">
+    <form class="Login">
+        <svg width="300" height="100">
+            <defs>
+                <linearGradient id="logoGradient" x1="0" y1="0" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#2046BC" />
+                    <stop offset="75%" stop-color="black" />
+                </linearGradient>
+
+                <pattern id="logoPattern"
+                     patternUnits="userSpaceOnUse"
+                     width="200" height="200"
+                     viewbox="0 0 200 200">
+                     <rect width="200" height="200" fill="url(#logoGradient)"/>
+                </pattern>
+            </defs>
+            <text x="125" y="75" class="logo" fill="url(#logoPattern)">g</text>
+        </svg>
+        <div class="username {errorClass}">
+            <textbox auto-commit placeholder={app.i18n.messages.username()} value={{username}} on-keydown={submit} />
+        </div>
+        <div class="password {errorClass}">
+            <textbox is-secure-entry auto-commit placeholder={app.i18n.messages.password()} value={{password}} on-keydown={submit} />
+            <span class="errorMessage">{errorMessage}</span>
+        </div>
+        <div class="login">
+            <button label={app.i18n.messages.logMeIn()} on-activate={login} />
+        </div>
+        <div class="stay-logged-in is-checked-{stayLoggedIn}">
+            <checkbox is-checked={stayLoggedIn} on-activate={toggleStayLoggedIn} />
+            <span on-activate={toggleStayLoggedIn}>
+                <ui-label text={app.i18n.messages.stayLoggedIn()} />
+            </span>
+        </div>
+        <div class="links">
+            <a class="register" href="{app.router.createUrl('login', { action: 'register' })}">
+                {app.i18n.messages.registerAccount()}
+            </a>
+            <a class="resetPassword" href="{app.router.createUrl('login', { action: 'resetpassword' })}">
+                {app.i18n.messages.resetPassword()}
+            </a>
+        </div>
+        <div class="copyright">Unified Inbox.</div>
+    </form>
+</div>

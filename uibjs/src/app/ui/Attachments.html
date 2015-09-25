@@ -1,0 +1,26 @@
+<alias tag="drop-down" to="app/ui/DropDown">
+<alias tag="ui-label" to="mayhem/ui/dom/Label">
+
+<ul class="Attachments">
+	<for each={attachments} as="attachment">
+		<li class="Attachments-item">
+			<if condition={attachment.previewUrl}>
+				<div class="Attachments-image" style="background-image: url('{attachment.previewUrl}')"></div>
+			<else>
+				<span class={attachment.iconClass}></span>
+			</if>
+			<span class="Attachments-name">{attachment.name}</span>
+			<span class="Attachments-size">({attachment.readableSize})</span>
+			<drop-down
+				><property name="label"><span class="icon-app-menu"></span></property
+				><property name="dropDown"><ul>
+					<ui-label
+						attachment="{attachment}"
+						formattedText="<li class=\"icon-app-delete\">{app.i18n.messages.delete()}</li>"
+						on-activate={delete}
+					/>
+				</ul></property
+			></drop-down>
+		</li>
+	</for>
+</ul>

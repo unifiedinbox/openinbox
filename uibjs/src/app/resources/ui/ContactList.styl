@@ -1,0 +1,139 @@
+.ContactList {
+	background-color: $contactListBackgroundColor;
+
+	.ContactList-grid {
+		border: none;
+	}
+
+	.ContactRow {
+		padding: $contactRowPadding;
+		cursor: pointer;
+
+		&.selected {
+			background: $contactListSelectedBackground;
+
+			.identifier {
+				font-weight: bold;
+			}
+		}
+
+		&:hover {
+			background-color: $contactRowHoverColor;
+		}
+	}
+
+	.Avatar {
+		margin-left: $contactRowAvatarMarginLeft;
+	}
+
+	.identifier {
+		display: inline-block;
+		margin: $contactRowIdentifierVMargin $contactRowIdentifierHMargin;
+		white-space: nowrap;
+		max-width: $contactRowIdentifierMaxWidth;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		line-height: 2.5;
+		height: $contactRowIdentifierHeight;
+	}
+
+	.connection-types {
+		margin-left: 10px;
+		position: absolute;
+		right: 10px;
+		> span:before {
+			display: inline-block;
+			icon-font-class('uib-services-icons');
+			border: $contactListConnectionBorderSize solid $contactListConnectionBorderColor;
+			border-radius: $contactListConnectionSize;
+			color: $contactListColor;
+			font-size: 9px;
+			line-height: 1.5; // Override 1 from icon-font-class mixin
+			height: $contactListConnectionSize;
+			width: $contactListConnectionSize;
+			text-align: center;
+			vertical-align: middle;
+		}
+	}
+
+	&.hide-connection-types {
+		.connection-types {
+			display: none;
+		}
+	}
+}
+
+// Styles for ConnectionList, which otherwise shares ContactList styles
+
+.ConnectionList {
+	.Avatar {
+		font-weight: normal;
+		margin-left: 0;
+	}
+	.dgrid .Avatar {
+		// Since ConnectionList rows _only_ need to display connection type icon (and always have one),
+		// modify the styles for the bottom-left region to occupy the entire avatar instead.
+		background: none;
+
+		&:before {
+			bottom: 0;
+			left: 0;
+			border-radius: $avatarSize;
+			color: $avatarTextColor;
+			font-size: $bodyFontSize;
+			height: $avatarSize;
+			line-height: $avatarSize;
+			width: $avatarSize;
+		}
+	}
+}
+
+.ConnectionList-title {
+	border-bottom: 1px solid $recipientBorderColor;
+	font-weight: bold;
+	padding: $contactRowPadding;
+
+	&:before {
+		color: $dropDownItemIconColor;
+		display: inline-block;
+		font-weight: normal;
+		text-align: center;
+		vertical-align: middle;
+		width: $avatarSize;
+		icon-font-class('uib-app-related-icons');
+		@extend .icon-app-previous-1:before;
+	}
+
+	.Avatar {
+		margin: 0 $contactRowIdentifierHMargin;
+	}
+}
+
+// Styles for GroupedConnectionList, which otherwise shares ContactList styles
+
+.GroupedConnectionList {
+	.ContactList-grid {
+		padding-bottom: 10px;
+	}
+
+	.ContactRow {
+		display: inline-block;
+		width: $connectionRowWidth;
+		padding: 2px 5px;
+	}
+
+	.group-header {
+		padding: 10px;
+		background-color: #fff;
+		.header-title {
+			font-size: $connectionListHeaderSize;
+			font-weight: bold;
+		}
+		.select-all {
+			color: $connectionListHeaderColor;
+			font-size: $connectionListHeaderSize - 2px;
+			margin-left: 10px;
+			cursor: pointer;
+		}
+	}
+}

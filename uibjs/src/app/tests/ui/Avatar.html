@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Avatar Widget Test Page</title>
+		<link rel="stylesheet" href="../../resources/main.css">
+	</head>
+	<body>
+		<div>Set image:
+			<button id="setImageUrl">URL</button>
+			<button id="setImageInitials">Initials</button>
+			<button id="setImageBlank">Blank</button>
+		</div>
+		<div>Set connectionType:
+			<button id="setConnectionNone">none (don't show icon)</button>
+			<button id="setConnectionEmail">email</button>
+			<button id="setConnectionTwitter">twitter</button>
+			<button id="setConnectionFacebook">facebook</button>
+			<button id="setConnectionLinkedin">linkedin</button>
+		</div>
+		<div>
+			<button id="logValues">Log attribute values</button>
+		</div>
+		<script src="dojoConfig.js"></script>
+		<script src="../../../dojo/dojo.js"></script>
+		<script>
+			require([ 'app/tests/ui/Avatar', 'dojo/on' ], function (app, on) {
+				app.run().then(function () {
+					var avatar = app.get('ui').get('view');
+
+					// These values correspond to the enum in Avatar.ts
+					var connectionTypes = {
+						none: 0,
+						email: 1,
+						twitter: 2,
+						facebook: 3,
+						linkedin: 4
+					};
+
+					function registerClickHandlers(hash) {
+						for (var k in hash) {
+							on(document.getElementById(k), 'click', hash[k]);
+						}
+					}
+
+					registerClickHandlers({
+						setImageUrl: function () {
+							avatar.set('image', 'https://avatars2.githubusercontent.com/u/398379?v=3&s=72');
+						},
+						setImageInitials: function () {
+							avatar.set('image', 'KF');
+						},
+						setImageBlank: function () {
+							avatar.set('image', '');
+						},
+						setConnectionNone: function () {
+							avatar.set('connectionType', '');
+						},
+						setConnectionEmail: function () {
+							avatar.set('connectionType', 'E');
+						},
+						setConnectionTwitter: function () {
+							avatar.set('connectionType', 'A');
+						},
+						setConnectionFacebook: function () {
+							avatar.set('connectionType', 'M');
+						},
+						setConnectionLinkedin: function () {
+							avatar.set('connectionType', 'L');
+						},
+						logValues: function () {
+							console.log('image:', avatar.get('image'));
+							console.log('connectionType:', avatar.get('connectionType'));
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+.MessageActions {
+	height: $gridRowHeight;
+
+	&.is-hidden {
+		display: none;
+	}
+
+	.messageAction {
+		color: $messageActionsColor;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 21px;
+		height: $gridRowHeight;
+		padding: 8px;
+	}
+
+	.DropDownContainer ul {
+		width: $messageActionsDropDownWidth;
+	}
+
+	.messageAction:hover,
+	.DropDown.open .messageAction {
+		color: $messageActionsHoverColor;
+	}
+
+	// Override colors within header
+	.header & {
+		.messageAction {
+			color: $headerColor;
+		}
+
+		.messageAction:hover,
+		.DropDown.open .messageAction {
+			color: darken($headerColor, 10%);
+		}
+	}
+}

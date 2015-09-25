@@ -1,0 +1,88 @@
+<alias tag="add-attachment" to="app/ui/AddAttachment" />
+<alias tag="button" to="mayhem/ui/form/Button" />
+<alias tag="drop-down" to="app/ui/DropDown" />
+<alias tag="folder-list" to="app/ui/folders/FolderList" />
+<alias tag="recipients-input" to="app/ui/messages/RecipientsInput" />
+<alias tag="text" to="mayhem/ui/form/Text" />
+<alias tag="ui-label" to="mayhem/ui/Label" />
+
+<div class="MessageCompositionContainer">
+	<div class="MessageComposition-dropDownBar">
+		<drop-down
+			><property name="label"
+				><span class="MessageComposition-options"
+					>{app.i18n.messages.sendOptions()}</span
+				><span class="icon-app-arrow-3"></span
+			></property
+			><property name="dropDown"><ul>
+				<li class="MessageComposition-DropDown-item">
+					<ui-label formattedText="{app.i18n.messages.priority()} <span class=\"MessageComposition-priority\">{priorityLabel}</span>" on-activate="togglePriority" />
+					<ul class="MessageComposition-priority-list {showPriorityClass}">
+						<li class="MessageComposition-DropDown-item {lowPriorityClass}"
+							><ui-label text="{app.i18n.messages.low()}" on-activate="lowPriority"
+						/></li>
+						<li class="MessageComposition-DropDown-item {standardPriorityClass}"
+							><ui-label text="{app.i18n.messages.standard()}" on-activate="standardPriority"
+						/></li>
+						<li class="MessageComposition-DropDown-item {highPriorityClass}"
+							><ui-label text="{app.i18n.messages.high()}" on-activate="highPriority"
+						/></li>
+					</ul>
+				</li>
+				<li class="MessageComposition-DropDown-item"
+					><ui-label text="{app.i18n.messages.draftSaveOnClose()}" on-activate="draftSaveOnClose"
+					/><span class="MessageComposition-draftSaveOnClose icon-app-check-mark-circle-two {draftSaveOnCloseClass}"></span>
+				</li>
+			</ul></property
+		></drop-down>
+		<span class="MessageComposition-close icon-app-cancel" on-activate="close"></span>
+	</div>
+	<div class="MessageComposition">
+		<div class="MessageComposition-to">
+			<span>To: </span><recipients-input id="to" contactsCollection={contacts} value="{to}"/>
+			<span class="MessageComposition-cc-toggle {showCcToggleClass}" on-activate="toggleShowCc">CC</span>
+		</div>
+		<div class="MessageComposition-cc {showCcClass}">
+			<span>cc:</span><recipients-input id="cc" contactsCollection={contacts} value="{cc}"/>
+			<span class="MessageComposition-bcc-toggle {showBccToggleClass}" on-activate="toggleShowBcc">BCC</span>
+			<span class="MessageComposition-cc-close" on-activate="toggleShowCc"></span>
+		</div>
+		<div class="MessageComposition-bcc {showBccClass}">
+			<span>bcc:</span><recipients-input id="bcc" contactsCollection={contacts} value="{bcc}"/>
+			<span class="MessageComposition-bcc-close" on-activate="toggleShowBcc"></span>
+		</div>
+		<div class="MessageComposition-subject">
+			<text placeholder="Subject" value="{{subject}}" />
+		</div>
+		<div class="MessageComposition-body">
+			<text is-multi-line=true value="{{body}}" />
+		</div>
+		<placeholder name="attachmentsWidget" />
+
+		<ul class="MessageComposition-actions">
+			<li class="MessageComposition-action"
+				><button formatted-label="{app.i18n.messages.sendMessage()}" on-activate="send"
+			/></li>
+			<li class="MessageComposition-action"
+				><add-attachment collection={attachmentsModel.attachments}
+			/></li>
+			<li class="MessageComposition-action MessageComposition-action--move"
+				><span class="MoveToFolderCheckbox is-checked-{moveToFolder}" on-activate="toggleMoveToFolder"
+					><ui-label text={app.i18n.messages.moveTo()}
+				/></span
+				><drop-down
+					><property name="label">{selectedFolderLabel}</property
+					><property name="dropDown"
+						><folder-list collection="{app.user.folders}"
+									 recentlyUsedFolders="{app.user.session.recentlyUsedFolders}" showRecentlyUsed="true"
+									 showSearch="false" showArchives="true" containerClass="ContextMenu--folder"
+									 excluded=["Drafts", "Outbox", "Sent"]
+					/></property
+				></drop-down
+			></li>
+			<li class="MessageComposition-action MessageComposition-action--trash"
+				><span class="icon-app-delete" on-activate="trash"></span
+			></li>
+		</ul>
+	</div>
+</div>

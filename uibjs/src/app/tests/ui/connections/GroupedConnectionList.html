@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>GroupedConnectionList Widget Test Page</title>
+		<link rel="stylesheet" href="../../../resources/main.css">
+	</head>
+	<body>
+		<div>
+			<input type="text" id="account">
+			<button id="changeAccount">change account name</button>
+		</div>
+		<div>
+			<button id="toggleSearch">toggle search</button>
+		</div>
+		<div>
+			<button id="logValue">Log value</button>
+			<button id="setValue">Set value</button>
+		</div>
+		<script src="../dojoConfig.js"></script>
+		<script>dojoConfig.baseUrl = '../../../../';</script>
+		<script src="../../../../dojo/dojo.js"></script>
+		<script>
+			require([
+				'dojo/on',
+				'app/models/Connection',
+				'app/tests/ui/connections/GroupedConnectionList'
+			], function (on, Connection, app) {
+				app.run().then(function () {
+					function registerClickHandlers(hash) {
+						for (var k in hash) {
+							on(document.getElementById(k), 'click', hash[k]);
+						}
+					}
+
+					registerClickHandlers({
+						changeAccount: function () {
+							app.get('ui').get('view')._collection.get('8142').then(function (connection) {
+								connection.set('account', document.getElementById('account').value);
+							});
+						},
+						toggleSearch: function () {
+							var connectionList = app.get('ui').get('view');
+							connectionList.set('showSearch', !connectionList.get('showSearch'));
+						},
+						logValue: function () {
+							console.log('Selected values:');
+							app.get('ui').get('view').get('value').forEach(function (connection) {
+								console.log(connection.get('displayName'), connection.get('type'));
+							});
+						},
+						setValue: function () {
+							Connection.store.get('8142').then(function (connection) {
+								app.get('ui').get('view').set('value', [ connection ]);
+							});
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

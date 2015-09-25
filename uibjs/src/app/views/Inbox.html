@@ -1,0 +1,98 @@
+<alias tag="alert-list" to="app/ui/AlertList">
+<alias tag="account-row" to="mayhem/templating/html!app/ui/AccountRow.html">
+<alias tag="actions" to="app/ui/messages/BulkMessageActions">
+<alias tag="avatar" to="app/ui/Avatar">
+<alias tag="conversation-dialog" to="app/ui/messages/ConversationDialog" />
+<alias tag="drop-down" to="app/ui/DropDown">
+<alias tag="folder-footer" to="mayhem/templating/html!app/ui/folders/FolderPaneFooter.html">
+<alias tag="folder-list" to="app/ui/folders/FolderList">
+<alias tag="message-filters" to="app/ui/messages/MessageFilters">
+<alias tag="message-list" to="app/ui/messages/MessageList">
+<alias tag="message-notification" to="app/ui/MessageNotification">
+<alias tag="notification-label" to="app/ui/notifications/NotificationLabel">
+<alias tag="notification-list" to="app/ui/notifications/NotificationList">
+<alias tag="search" to="app/ui/search/MasterSearch">
+
+<div class="header">
+	<div class="left">
+		<div class="icon-service-uib" on-activate="toggleSidebar">{app.i18n.messages.title()}</div>
+	</div>
+	<div class="right">
+		<div class="icon-app-write" on-activate="compose"></div>
+		<drop-down
+			><property name="label"><notification-label collection="{app.user.mentions}" /></property
+			><property name="dropDown"><notification-list collection="{app.user.mentions}" /></property
+		></drop-down>
+		<drop-down
+			><property name="label"><avatar image={app.user.data.image} /></property
+			><property name="dropDown"><account-row /></property
+		></drop-down>
+	</div>
+
+	<div class="center">
+		<if condition={isActionsVisible}>
+			<actions model="{messageActionsModel}" />
+		<else>
+			<search
+				collection="{app.user.contacts}"
+				searchPlaceholder="{app.i18n.messages.searchPlaceholder()}"
+				search="{masterSearchValue}"
+			/>
+		</if>
+	</div>
+</div>
+
+<div class="Inbox-background" style="background-image: url({app.user.backgroundImage})"></div>
+
+<div class="content">
+	<if condition={isSidebarVisible}>
+		<div class="sidebar left">
+			<folder-list collection="{app.user.folders}" currentFolderId="{folder.id}" showArchives="true" />
+			<folder-footer />
+		</div>
+	</if>
+
+	<div class="Inbox-content {stateClasses}">
+		<div class="Inbox">
+			<if condition="{isMessageListVisible}">
+				<if condition={isFetching}>
+					<div class="PlaceholderMessage">
+						<p class="PlaceholderMessage-text">{app.i18n.messages.searching()}</p>
+					</div>
+				<else>
+					<message-filters model="{messageFiltersModel}" />
+
+					<div class="MessageListContainer">
+						<message-notification notifications="{newMessageNotificationObserver}" />
+						<message-list collection="{messages}" currentFolderName="{folder.name}" isInSearchMode="{isInSearchMode}" />
+					</div>
+				</if>
+			</if>
+
+			<if condition={isInboxZeroVisible}>
+				<if condition={showNoResultsMessage}>
+					<div class="PlaceholderMessage">
+						<p class="PlaceholderMessage-text">{app.i18n.messages.noMessages()}</p>
+					</div
+				<else>
+					<div class="PlaceholderMessage InboxZero">
+						<h2 class="PlaceholderMessage-heading">{app.i18n.messages.congratulations()}</h2>
+						<p class="PlaceholderMessage-text">{app.i18n.messages.inboxZero()}</p>
+					</div>
+				</if>
+			</if>
+		</div>
+	</div>
+</div>
+
+<conversation-dialog
+	collection="{conversations}"
+	message="{message}"
+	notifications="{conversationNotifications}"
+	isOpen="{{showConversation}}"
+/>
+
+<alert-list maximumLength="3" collection="{app.user.alerts}" />
+<placeholder name="composer" />
+
+<img class="AppLogo" src="app/resources/images/unifiedLogo.png" width="100" />

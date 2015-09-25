@@ -1,0 +1,22 @@
+// Generic classes applying styles for icons for different connection types.
+// Currently used for Avatar and ContactList.
+
+&.connection-none:before {
+	display: none;
+}
+&.connection-email:before {
+	background-color: #3467cb;
+	content: 'Q'; // icon-service-mail
+}
+&.connection-twitter:before {
+	background-color: #55acee;
+	content: 'b'; // icon-service-twitter
+}
+&.connection-facebook:before {
+	background-color: #3a5795;
+	content: 'a'; // icon-service-facebook
+}
+&.connection-linkedin:before {
+	background-color: #0778b4;
+	content: 'I'; // icon-service-linkedin
+}

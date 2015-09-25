@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Folder List Widget Test Page</title>
+		<link rel="stylesheet" href="../../../resources/main.css">
+		<style>
+			button {
+				display: inline-block;
+				margin-right: 10px;
+			}
+			.FolderListContainer {
+				margin: 40px 0 0 40px;
+				width: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="margin: 30px;">
+			<p>Selected Folder: <span id="value"> </span></p>
+			<button id="addUnread" data-name="Inbox">Add Unread Message To Inbox</button>
+			<button id="markAsRead" data-name="Inbox">Mark An Inbox Message As Read</button>
+			<button id="setMostRecent">Set "Private" As Most Recent Folder</button>
+		</div>
+
+		<script src="../dojoConfig.js"></script>
+		<script>dojoConfig.baseUrl = '../../../../';</script>
+		<script src="../../../../dojo/dojo.js"></script>
+		<script>
+			require([ 'app/tests/ui/folders/FolderList' ]);
+		</script>
+	</body>
+</html>
