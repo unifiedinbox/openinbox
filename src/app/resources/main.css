@@ -1,0 +1,2781 @@
+@charset "UTF-8";
+@import "../../dijit/themes/dijit.css";
+@import "../../dgrid/css/dgrid.css";
+@font-face {
+  font-family: 'uib-app-related-icons';
+  src: url("fonts/uib-app-related-icons.eot");
+  src: url("fonts/uib-app-related-icons.eot?#iefix") format('embedded-opentype'), url("fonts/uib-app-related-icons.woff") format('woff'), url("fonts/uib-app-related-icons.ttf") format('truetype'), url("fonts/uib-app-related-icons.svg#uib-app-related-icons") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'uib-services-icons';
+  src: url("fonts/uib-services-icons.eot");
+  src: url("fonts/uib-services-icons.eot?#iefix") format('embedded-opentype'), url("fonts/uib-services-icons.woff") format('woff'), url("fonts/uib-services-icons.ttf") format('truetype'), url("fonts/uib-services-icons.svg#uib-services-icons") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[data-icon-app]:before {
+  content: attr(data-icon-app);
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[class^="icon-app-"]:before,
+[class*=" icon-app-"]:before {
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[data-icon-service]:before {
+  content: attr(data-icon-service);
+  font-family: 'uib-services-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[class^="icon-service-"]:before,
+[class*=" icon-service-"]:before {
+  font-family: 'uib-services-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-app-star-inactive:before,
+.MessageRow-star:before {
+  content: "a";
+}
+.icon-app-star-active:before,
+.MessageRow.is-starred .MessageRow-star:before {
+  content: "b";
+}
+.icon-app-image:before {
+  content: "e";
+}
+.icon-app-movie:before {
+  content: "f";
+}
+.icon-app-menu:before {
+  content: "g";
+}
+.icon-app-public:before,
+.MessageRow-privacy--public:before {
+  content: "h";
+}
+.icon-app-edit-2:before {
+  content: "i";
+}
+.icon-app-filter:before {
+  content: "j";
+}
+.icon-app-profile:before {
+  content: "k";
+}
+.icon-app-delete:before,
+.Folder--trash:before {
+  content: "l";
+}
+.icon-app-defer:before {
+  content: "m";
+}
+.icon-app-refresh:before {
+  content: "n";
+}
+.icon-app-private:before,
+.MessageRow-privacy--single:before {
+  content: "o";
+}
+.icon-app-folder-open:before {
+  content: "q";
+}
+.icon-app-edit:before {
+  content: "r";
+}
+.icon-app-like:before {
+  content: "t";
+}
+.icon-app-business:before,
+.Folder--business:after,
+.MessageRow-privacy--business:before {
+  content: "w";
+}
+.icon-app-template:before,
+.Folder--templates:before {
+  content: "x";
+}
+.icon-app-quote:before {
+  content: "y";
+}
+.icon-app-today:before {
+  content: "z";
+}
+.icon-app-mark-as-2:before {
+  content: "B";
+}
+.icon-app-reminder:before {
+  content: "C";
+}
+.icon-app-archive-message:before,
+.Folder--archive:before {
+  content: "D";
+}
+.icon-app-geo:before {
+  content: "E";
+}
+.icon-app-external:before {
+  content: "F";
+}
+.icon-app-reply-all:before {
+  content: "G";
+}
+.icon-app-reply:before,
+.MessageRow.is-replied .MessageRow-ancillary:before {
+  content: "H";
+}
+.icon-app-read-later:before {
+  content: "I";
+}
+.icon-app-checkbox-active:before {
+  content: "K";
+}
+.icon-app-map-pin:before {
+  content: "L";
+}
+.icon-app-info:before {
+  content: "M";
+}
+.icon-app-cancel-1:before {
+  content: "N";
+}
+.icon-app-forward:before,
+.MessageRow.is-forwarded .MessageRow-ancillary:before {
+  content: "O";
+}
+.icon-app-retweet:before {
+  content: "P";
+}
+.icon-app-folder:before,
+.Folder--personal:before,
+.Folder--shared:before {
+  content: "Q";
+}
+.icon-app-arrow-3:before,
+.MessageFilters-toggler:after,
+.MessageFilter--dropdown:after {
+  content: "R";
+}
+.icon-app-arrow-1:before,
+.is-open .MessageFilters-toggler:after,
+.MessageNotification-total:before {
+  content: "S";
+}
+.icon-app-cancel:before {
+  content: "T";
+}
+.icon-app-checkbox:before {
+  content: "U";
+}
+.icon-app-arrow-2:before {
+  content: "V";
+}
+.icon-app-arrow-4:before {
+  content: "W";
+}
+.icon-app-arrow-5:before {
+  content: "X";
+}
+.icon-app-junk:before {
+  content: "Y";
+}
+.icon-app-fontawesome-webfont:before {
+  content: "Z";
+}
+.icon-app-share:before {
+  content: "0";
+}
+.icon-app-move-to:before {
+  content: "1";
+}
+.icon-app-exchange:before {
+  content: "2";
+}
+.icon-app-archive:before {
+  content: "3";
+}
+.icon-app-new:before {
+  content: "4";
+}
+.icon-app-whitelist:before {
+  content: "5";
+}
+.icon-app-add:before {
+  content: "6";
+}
+.icon-app-fontawesome-webfont-1:before {
+  content: "7";
+}
+.icon-app-remove:before {
+  content: "9";
+}
+.icon-app-sent:before,
+.Folder--sent:before {
+  content: "!";
+}
+.icon-app-write:before {
+  content: "#";
+}
+.icon-app-team:before,
+.Folder--shared:after,
+.MessageRow-privacy--team:before {
+  content: "$";
+}
+.icon-app-outbox:before,
+.Folder--outbox:before {
+  content: "%";
+}
+.icon-app-inbox:before,
+.Folder--inbox:before {
+  content: "&";
+}
+.icon-app-assign:before {
+  content: "'";
+}
+.icon-app-next:before {
+  content: '"';
+}
+.icon-app-previous-1:before,
+.ConnectionList-title:before {
+  content: "8";
+}
+.icon-app-account:before {
+  content: "+";
+}
+.icon-app-previous-2:before {
+  content: ",";
+}
+.icon-app-contacts:before {
+  content: ".";
+}
+.icon-app-lifemodes:before {
+  content: "*";
+}
+.icon-app-dashboard:before {
+  content: "/";
+}
+.icon-app-comment:before {
+  content: "s";
+}
+.icon-app-unread:before {
+  content: ";";
+}
+.icon-app-connections:before {
+  content: "<";
+}
+.icon-app-read:before {
+  content: ":";
+}
+.icon-app-log-out:before {
+  content: "v";
+}
+.icon-app-developer:before {
+  content: "(";
+}
+.icon-app-heart:before {
+  content: ")";
+}
+.icon-app-feedback:before {
+  content: "=";
+}
+.icon-app-cart:before {
+  content: ">";
+}
+.icon-app-chart:before {
+  content: "?";
+}
+.icon-app-settings:before {
+  content: "A";
+}
+.icon-app-settings-advanced:before {
+  content: "@";
+}
+.icon-app-print:before {
+  content: "[";
+}
+.icon-app-save:before {
+  content: "]";
+}
+.icon-app-copy:before {
+  content: "^";
+}
+.icon-app-plus:before {
+  content: "_";
+}
+.icon-app-bold:before {
+  content: "`";
+}
+.icon-app-italic:before {
+  content: "{";
+}
+.icon-app-font-color:before {
+  content: "}";
+}
+.icon-app-smiley:before,
+.InboxZero:before {
+  content: "~";
+}
+.icon-app-feather:before,
+.Folder--drafts:before {
+  content: "\\";
+}
+.icon-app-workflow:before {
+  content: "\e000";
+}
+.icon-app-info-1:before {
+  content: "\e001";
+}
+.icon-app-brush:before {
+  content: "\e002";
+}
+.icon-app-graph-trend:before {
+  content: "\e003";
+}
+.icon-app-mail:before {
+  content: "\e004";
+}
+.icon-app-note:before {
+  content: "\e005";
+}
+.icon-app-leaf:before {
+  content: "\e006";
+}
+.icon-app-exclamation-mark:before {
+  content: "\e007";
+}
+.icon-app-calendar:before {
+  content: "\e008";
+}
+.icon-app-underline:before {
+  content: "|";
+}
+.icon-app-font-format:before {
+  content: "\e009";
+}
+.icon-app-history:before {
+  content: "\e00a";
+}
+.icon-app-uib:before {
+  content: "\e00b";
+}
+.icon-app-info-2:before {
+  content: "\e00c";
+}
+.icon-app-app-ons:before {
+  content: "\e00d";
+}
+.icon-app-play:before {
+  content: "\e00e";
+}
+.icon-app-pause:before {
+  content: "\e00f";
+}
+.icon-app-question:before {
+  content: "\e010";
+}
+.icon-app-information:before {
+  content: "\e011";
+}
+.icon-app-keyboard:before {
+  content: "\e013";
+}
+.icon-app-camera:before {
+  content: "\e014";
+}
+.icon-app-mic:before {
+  content: "\e015";
+}
+.icon-app-talk-chat:before,
+.MessageRow-privacy.has-comments:after {
+  content: "\e016";
+}
+.icon-app-list-number:before {
+  content: "\e017";
+}
+.icon-app-list-bullet:before {
+  content: "\e018";
+}
+.icon-app-align-left:before {
+  content: "\e019";
+}
+.icon-app-align-center:before {
+  content: "\e01a";
+}
+.icon-app-align-right:before {
+  content: "\e01b";
+}
+.icon-app-like-active:before {
+  content: "\e01c";
+}
+.icon-app-arrows-compress:before {
+  content: "\e01d";
+}
+.icon-app-arrows-expand:before {
+  content: "\e01e";
+}
+.icon-app-spinner:before {
+  content: "\e01f";
+}
+.icon-app-read-receipt:before {
+  content: "\e020";
+}
+.icon-app-check-mark-circle-two:before {
+  content: "\e021";
+}
+.icon-app-circle-line:before {
+  content: "\e022";
+}
+.icon-app-favicon-avatar:before {
+  content: "\e023";
+}
+.icon-app-get-started:before {
+  content: "\e024";
+}
+.icon-app-distribute:before {
+  content: "\e025";
+}
+.icon-app-video-camera:before {
+  content: "p";
+}
+.icon-app-dice:before {
+  content: "\e027";
+}
+.icon-app-pin:before {
+  content: "\e028";
+}
+.icon-app-unpin:before {
+  content: "\e029";
+}
+.icon-app-attachment:before,
+.MessageRow-attachmentIcons:before {
+  content: "d";
+}
+.icon-app-key:before {
+  content: "\e012";
+}
+.icon-app-link:before {
+  content: "c";
+}
+.icon-app-mark-as-up:before {
+  content: "\e026";
+}
+.icon-app-tag-up:before {
+  content: "-";
+}
+.icon-app-telephone-up:before {
+  content: "u";
+}
+.icon-app-search-up:before,
+.search-container:before {
+  content: "\e030";
+}
+.icon-app-spam-shield:before,
+.Folder--junk:before {
+  content: "\e031";
+}
+.icon-app-quickfind:before {
+  content: "\e032";
+}
+.icon-app-file-audio:before {
+  content: "J";
+}
+.icon-app-file-excel:before {
+  content: "\e02a";
+}
+.icon-app-file-image:before {
+  content: "\e02b";
+}
+.icon-app-file-pdf:before {
+  content: "\e02c";
+}
+.icon-app-file-powerpoint:before {
+  content: "\e02d";
+}
+.icon-app-file-video:before {
+  content: "\e02e";
+}
+.icon-app-file-word:before {
+  content: "\e02f";
+}
+.icon-app-file-zip:before {
+  content: "\e033";
+}
+.icon-app-download:before {
+  content: "\e034";
+}
+.icon-app-signature:before {
+  content: "\e035";
+}
+.icon-service-facebook:before {
+  content: "a";
+}
+.icon-service-twitter:before {
+  content: "b";
+}
+.icon-service-alibaba:before {
+  content: "c";
+}
+.icon-service-google-docs:before {
+  content: "d";
+}
+.icon-service-skype:before {
+  content: "e";
+}
+.icon-service-pressdoc:before {
+  content: "j";
+}
+.icon-service-amazon:before {
+  content: "n";
+}
+.icon-service-toggl:before {
+  content: "p";
+}
+.icon-service-telekom:before {
+  content: "q";
+}
+.icon-service-microsoft:before {
+  content: "u";
+}
+.icon-service-web:before {
+  content: "v";
+}
+.icon-service-google:before {
+  content: "w";
+}
+.icon-service-calendar:before {
+  content: "x";
+}
+.icon-service-paypal:before {
+  content: "y";
+}
+.icon-service-orange:before {
+  content: "z";
+}
+.icon-service-singtel:before {
+  content: "B";
+}
+.icon-service-fastmail:before {
+  content: "C";
+}
+.icon-service-yahoo:before {
+  content: "D";
+}
+.icon-service-1and1:before {
+  content: "E";
+}
+.icon-service-huawei:before {
+  content: "G";
+}
+.icon-service-linkedin:before {
+  content: "I";
+}
+.icon-service-laposte:before {
+  content: "J";
+}
+.icon-service-starhub:before {
+  content: "K";
+}
+.icon-service-dropbox:before {
+  content: "L";
+}
+.icon-service-evernote:before {
+  content: "O";
+}
+.icon-service-googleplus:before {
+  content: "P";
+}
+.icon-service-mail:before {
+  content: "Q";
+}
+.icon-service-basecamp:before {
+  content: "R";
+}
+.icon-service-disqus:before {
+  content: "T";
+}
+.icon-service-yammer:before {
+  content: "U";
+}
+.icon-service-satisfaction:before {
+  content: "V";
+}
+.icon-service-posterous:before {
+  content: "W";
+}
+.icon-service-quora:before {
+  content: "X";
+}
+.icon-service-myspace:before {
+  content: "Z";
+}
+.icon-service-fax:before {
+  content: "1";
+}
+.icon-service-twilio:before {
+  content: "2";
+}
+.icon-service-mail-1:before {
+  content: "0";
+}
+.icon-service-blogger:before {
+  content: "3";
+}
+.icon-service-apple:before {
+  content: "4";
+}
+.icon-service-adobe:before {
+  content: "5";
+}
+.icon-service-digg:before {
+  content: "6";
+}
+.icon-service-youtube:before {
+  content: "7";
+}
+.icon-service-xing:before {
+  content: "8";
+}
+.icon-service-tumblr:before {
+  content: "9";
+}
+.icon-service-instagram:before {
+  content: "!";
+}
+.icon-service-1and1:before {
+  content: '"';
+}
+.icon-service-alibaba:before {
+  content: "#";
+}
+.icon-service-amt:before {
+  content: "$";
+}
+.icon-service-angellist:before {
+  content: "%";
+}
+.icon-service-aol:before {
+  content: "&";
+}
+.icon-service-atlassian:before {
+  content: "'";
+}
+.icon-service-chargify:before {
+  content: "(";
+}
+.icon-service-disqus:before {
+  content: ")";
+}
+.icon-service-fastmail:before {
+  content: "*";
+}
+.icon-service-gmail:before {
+  content: "+";
+}
+.icon-service-gmx:before {
+  content: ",";
+}
+.icon-service-google-docs:before {
+  content: "-";
+}
+.icon-service-groupon:before {
+  content: ".";
+}
+.icon-service-sap:before {
+  content: "/";
+}
+.icon-service-pressdoc:before {
+  content: ":";
+}
+.icon-service-pivotaltracker:before {
+  content: ";";
+}
+.icon-service-pingdom:before {
+  content: "<";
+}
+.icon-service-paper:before {
+  content: "=";
+}
+.icon-service-outlook:before {
+  content: ">";
+}
+.icon-service-orange:before {
+  content: "?";
+}
+.icon-service-nimble:before {
+  content: "@";
+}
+.icon-service-mailchimp:before {
+  content: "[";
+}
+.icon-service-mailru:before {
+  content: "]";
+}
+.icon-service-laposte:before {
+  content: "_";
+}
+.icon-service-huawei:before {
+  content: "^";
+}
+.icon-service-satisfaction:before {
+  content: "`";
+}
+.icon-service-singtel:before {
+  content: "{";
+}
+.icon-service-starhub:before {
+  content: "|";
+}
+.icon-service-swiss-post:before {
+  content: "}";
+}
+.icon-service-telekom:before {
+  content: "~";
+}
+.icon-service-web:before {
+  content: "\\";
+}
+.icon-service-yammer:before {
+  content: "\e000";
+}
+.icon-service-chargify:before {
+  content: "c";
+}
+.icon-service-vnpt:before {
+  content: "f";
+}
+.icon-service-uib:before {
+  content: "g";
+}
+.icon-service-sms:before {
+  content: "i";
+}
+.icon-service-socialgrow:before {
+  content: "h";
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  background: #fff;
+  color: #000;
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.copyright {
+  margin-top: 10px;
+  text-align: center;
+}
+.copyright:before {
+  content: '©';
+  padding-right: 5px;
+}
+.splash-background {
+  background-image: url("images/background-blur.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+.is-hidden {
+  display: none;
+}
+.is-highlighted,
+.ContactList--autocomplete .is-highlighted {
+  background-color: rgba(139,190,68,0.1);
+}
+.header {
+  z-index: 1;
+}
+.header .icon-app-write {
+  cursor: pointer;
+}
+.content {
+  height: calc(100% - 40px);
+  z-index: 0;
+}
+.sidebar {
+  background-color: #fff;
+  height: 100%;
+  width: 185px;
+}
+.sidebar .FolderListContainer {
+  height: calc(100% - 68px);
+  overflow: auto;
+}
+.AppLogo {
+  bottom: 20px;
+  position: fixed;
+  right: 20px;
+}
+.Login {
+  background-color: #fff;
+  width: 350px;
+  padding: 15px 25px;
+  -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.Login .logo {
+  font-family: 'uib-services-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 60px;
+}
+.Login .username .dijitTextBox,
+.Login .password .dijitTextBox {
+  width: 100%;
+  height: 40px;
+  border-color: #ddd;
+  padding-left: 10px;
+}
+.Login .username .dijitInputInner,
+.Login .password .dijitInputInner {
+  height: 40px;
+  font-size: 18px;
+  color: #777;
+}
+.Login .username .dijitPlaceHolder,
+.Login .password .dijitPlaceHolder {
+  font-size: 18px;
+  font-style: normal;
+  top: 8px;
+  left: 0;
+  color: #ccc;
+}
+.Login .username .errorMessage,
+.Login .password .errorMessage {
+  display: none;
+}
+.Login .username.error .dijitTextBox,
+.Login .password.error .dijitTextBox {
+  border-color: #ffa500;
+}
+.Login .username.error .errorMessage,
+.Login .password.error .errorMessage {
+  display: inline;
+  color: #ffa500;
+  padding-top: 2px;
+}
+.Login .password {
+  margin-top: 15px;
+}
+.Login .login {
+  margin-top: 15px;
+  height: 40px;
+  background-color: #244bc4;
+  color: #fff;
+}
+.Login .login .dijitButton,
+.Login .login .dijitButtonNode {
+  height: 100%;
+  width: 100%;
+}
+.Login .login .dijitButton {
+  margin: 0;
+}
+.Login .login .dijitButtonContents {
+  height: 100%;
+  line-height: 34px;
+  font-size: 20px;
+}
+.Login .stay-logged-in {
+  text-align: center;
+  margin-top: 10px;
+  line-height: 17px;
+  cursor: pointer;
+}
+.Login .stay-logged-in .dijitCheckBoxInput {
+  cursor: pointer;
+}
+.Login .stay-logged-in:before {
+  content: '';
+  border: 2px solid #888;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  position: absolute;
+  line-height: 1.2;
+}
+.Login .stay-logged-in.is-checked-true:before {
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '5';
+  border: 2px solid #000;
+  font-size: 10px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  position: absolute;
+  line-height: 1.2;
+}
+.Login .links {
+  text-align: center;
+  margin-top: 30px;
+}
+.Login .links a {
+  margin-right: 5px;
+  text-decoration: none;
+}
+.DropDown {
+  display: inline-block;
+  position: relative;
+}
+.DropDownContainer {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-box-shadow: 0 2px 2px #ddd;
+  box-shadow: 0 2px 2px #ddd;
+}
+.DropDownContainer.open {
+  display: block;
+  z-index: 999;
+}
+.DropDownContainer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.DropDownContainer .item,
+.DropDownContainer li {
+  border-bottom: 1px solid #ddd;
+  color: #333;
+  cursor: pointer;
+  padding: 12px;
+  white-space: nowrap;
+}
+.DropDownContainer .item:last-child,
+.DropDownContainer li:last-child {
+  border-bottom: none;
+}
+.DropDownContainer .item:before,
+.DropDownContainer li:before {
+  color: #666;
+  font-size: 18px;
+  padding-right: 10px;
+  vertical-align: bottom;
+}
+.DropDownContainer .item:hover,
+.DropDownContainer li:hover {
+  background-color: #eee;
+}
+.DropDownContainer.with-ConnectionList {
+  width: 770px;
+}
+.DropDownContainer.with-ConnectionList .ContactList-group {
+  border-top: 1px solid #ddd;
+  height: 50vh;
+  min-height: 300px;
+  overflow-y: scroll;
+}
+.DropDownContainer.with-MessageFilters {
+  width: 172px;
+}
+.DropDownContainer.with-MessageFilters .MessageFilter-list-item {
+  padding: 0;
+}
+.header {
+  background-color: #8bbe44;
+  color: #fff;
+  height: 40px;
+  padding: 6px 15px;
+  position: relative;
+  vertical-align: middle;
+}
+.header [class^="icon-"] {
+  display: inline-block;
+  padding-top: 4px;
+  position: relative;
+  vertical-align: middle;
+}
+.header [class^="icon-"]:before {
+  padding-right: 10px;
+}
+.header .center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.header .Notification-count {
+  background-color: #f30;
+  border: 1px solid #fff;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 0.65em;
+  left: 40%;
+  min-height: 15px;
+  min-width: 15px;
+  padding: 1px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  z-index: 1;
+}
+.header .icon-service-uib,
+.header .LabelContainer {
+  cursor: pointer;
+}
+.header .LabelContainer {
+  padding-bottom: 10px;
+}
+.header .DropDownContainer {
+  top: 145%;
+}
+.header .DropDownContainer .NotificationMenu {
+  width: 340px;
+}
+.Loading {
+  background-color: #fff;
+  width: 300px;
+  padding: 25px;
+  text-align: center;
+  -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.Loading .Loading-message {
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+  margin: 0 5px 30px;
+}
+.Loading .Loading-message:before {
+  content: '\201c';
+}
+.Loading .Loading-message:after {
+  content: '\201d';
+}
+.Loading .Loading-spinner {
+  background: url("images/loading.gif") no-repeat center;
+  width: 32px;
+  height: 32px;
+  margin: 35px auto;
+}
+.Loading .copyright {
+  margin-top: 20px;
+}
+.search-container {
+  background-color: #fff;
+  border: 0;
+  border-bottom: 1px solid $lightgrey;
+  color: #aaa;
+  cursor: text;
+  font-size: 0.857142857142857rem;
+  position: relative;
+  width: 100%;
+}
+.search-container .dijitInputField {
+  padding: 10px 10px 10px 30px;
+  width: 100%;
+}
+.search-container .dijitPlaceHolder.dijitInputField {
+  font-style: normal;
+}
+.search-container:before {
+  color: #ccc;
+  font-size: 0.9em;
+  position: absolute;
+  left: 10px;
+  top: 12px;
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.Inbox {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 770px;
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+.Inbox-background {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.Inbox-content.has-overlay:before {
+  background: rgba(0,0,0,0.5);
+  content: '';
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.Inbox-content.is-inCompositionMode:before {
+  z-index: 1;
+}
+.PlaceholderMessage {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  background: rgba(255,255,255,0.5);
+  color: #999;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-size: 1.5em;
+  height: 200px;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  line-height: 1.5;
+  margin-top: 40px;
+}
+.PlaceholderMessage-heading,
+.PlaceholderMessage-text {
+  margin: 0;
+}
+.PlaceholderMessage-heading {
+  font-weight: normal;
+  line-height: 2;
+}
+.InboxZero:before {
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.8em;
+}
+.AccountRow {
+  padding: 10px;
+  text-align: left;
+  white-space: nowrap;
+}
+.AccountRow .Avatar {
+  -webkit-border-radius: 32px;
+  border-radius: 32px;
+  height: 32px;
+  line-height: 32px;
+  width: 32px;
+}
+.AccountRow .AccountRow-name,
+.AccountRow .AccountRow-logout {
+  display: inline-block;
+  padding-top: 4px;
+  vertical-align: top;
+}
+.AccountRow .AccountRow-name {
+  color: #000;
+  padding-left: 10px;
+  padding-right: 15px;
+}
+.AccountRow .AccountRow-username {
+  font-size: 12px;
+}
+.AccountRow .AccountRow-logout a {
+  color: #36c;
+}
+.AlertList {
+  left: 50%;
+  position: absolute;
+  top: 40px;
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  width: 190px;
+  z-index: 999;
+}
+.AlertList .dgrid {
+  border: none;
+}
+.Alert {
+  background-color: #f39e1d;
+  color: #fff;
+  margin-bottom: 3px;
+  padding: 8px 26px 8px 8px;
+  position: relative;
+}
+.Alert .Alert-action,
+.Alert .Alert-undo {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.Alert .Alert-close {
+  color: #f7bd7d;
+  cursor: pointer;
+  font-size: 22px;
+  position: absolute;
+  right: 4px;
+  top: 3px;
+}
+.AddAttachment {
+  display: inline-block;
+  position: relative;
+}
+.AddAttachment .Attachments-input {
+  overflow: hidden;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 14px;
+}
+.Attachments {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.Attachments-item {
+  display: inline-block;
+}
+.Attachments-item [class^="icon-app-"] {
+  display: inline-block;
+}
+.Attachments-item [class^="icon-app-"]:before {
+  padding-right: 4px;
+}
+.Attachments-item .LabelContainer {
+  cursor: pointer;
+}
+.Attachments-label {
+  vertical-align: middle;
+}
+.Attachments-image {
+  background: transparent center no-repeat;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  background-size: contain;
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  vertical-align: middle;
+}
+.Attachments--preview {
+  margin: 10px;
+}
+.Attachments--preview .Attachments-item {
+  margin-bottom: 15px;
+  margin-right: 20px;
+  padding-right: 15px;
+  vertical-align: top;
+  max-width: 175px;
+}
+.Attachments--preview .Attachments-label {
+  font-size: 0.9em;
+  line-height: 1.5;
+  margin: 0;
+}
+.Attachments--preview .Attachments-name {
+  display: block;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.Attachments--preview .Attachments-size {
+  float: right;
+  font-size: 0.9em;
+  position: relative;
+  top: 2px;
+}
+.Attachments--preview .Attachments-preview {
+  position: relative;
+}
+.Attachments--preview .Attachments-preview .DropDown {
+  position: absolute;
+  right: -20px;
+  top: 10px;
+  z-index: 1;
+}
+.Attachments--preview .Attachments-preview .DropDown .LabelContainer {
+  color: #ccc;
+}
+.Attachments--preview .Attachments-image,
+.Attachments--preview .Attachments-icon {
+  height: 120px;
+  width: 160px;
+}
+.Attachments--preview .Attachments-icon {
+  background: #eee;
+}
+.Attachments--preview .Attachments-icon:before {
+  color: #999;
+  display: block;
+  font-size: 2em;
+  line-height: 120px;
+  text-align: center;
+}
+.Avatar,
+.RecipientAvatar {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -webkit-border-radius: 26px;
+  border-radius: 26px;
+  color: #fff;
+  display: inline-block;
+  position: relative;
+  height: 26px;
+  line-height: 26px;
+  width: 26px;
+  text-align: center;
+  vertical-align: middle;
+}
+.Avatar:before,
+.RecipientAvatar:before {
+  font-family: 'uib-services-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border: 1px solid #fff;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 8px;
+  line-height: 1.5;
+  position: absolute;
+  bottom: -6px;
+  height: 12px;
+  left: -6px;
+  width: 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+.Avatar-no-image {
+  background-color: #8bbe44;
+}
+.Avatar-default {
+  background-color: #36c;
+  font-family: 'uib-app-related-icons';
+}
+.with-SelectableItem.is-inSelectionMode .Avatar,
+.SelectableItem .Avatar:hover,
+.SelectableItem.selected .Avatar,
+.SelectableItem.is-selected .Avatar {
+  background: none !important;
+  font-size: 0;
+}
+.with-SelectableItem.is-inSelectionMode .Avatar:before,
+.SelectableItem .Avatar:hover:before,
+.SelectableItem.selected .Avatar:before,
+.SelectableItem.is-selected .Avatar:before {
+  background: transparent;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 4px;
+  height: 15px;
+  left: 4px;
+  width: 15px;
+}
+.SelectableItem.selected .RecipientCheckbox:before,
+.SelectableItem.selected .Avatar:before,
+.SelectableItem.is-selected .Avatar:before {
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-color: #666;
+  color: #666;
+  content: '5';
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+  vertical-align: middle;
+}
+.ContactList {
+  background-color: #fff;
+}
+.ContactList .ContactList-grid {
+  border: none;
+}
+.ContactList .ContactRow {
+  padding: 10px 5px;
+  cursor: pointer;
+}
+.ContactList .ContactRow.selected {
+  background: rgba(139,190,68,0.1);
+}
+.ContactList .ContactRow.selected .identifier {
+  font-weight: bold;
+}
+.ContactList .ContactRow:hover {
+  background-color: rgba(139,190,68,0.1);
+}
+.ContactList .Avatar {
+  margin-left: 10px;
+}
+.ContactList .identifier {
+  display: inline-block;
+  margin: -4px 10px;
+  white-space: nowrap;
+  max-width: 150px;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  line-height: 2.5;
+  height: 26px;
+}
+.ContactList .connection-types {
+  margin-left: 10px;
+  position: absolute;
+  right: 10px;
+}
+.ContactList .connection-types > span:before {
+  display: inline-block;
+  font-family: 'uib-services-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border: 1px solid #fff;
+  -webkit-border-radius: 13px;
+  border-radius: 13px;
+  color: #fff;
+  font-size: 9px;
+  line-height: 1.5;
+  height: 13px;
+  width: 13px;
+  text-align: center;
+  vertical-align: middle;
+}
+.ContactList.hide-connection-types .connection-types {
+  display: none;
+}
+.ConnectionList .Avatar {
+  font-weight: normal;
+  margin-left: 0;
+}
+.ConnectionList .dgrid .Avatar {
+  background: none;
+}
+.ConnectionList .dgrid .Avatar:before {
+  bottom: 0;
+  left: 0;
+  -webkit-border-radius: 26px;
+  border-radius: 26px;
+  color: #fff;
+  font-size: 14px;
+  height: 26px;
+  line-height: 26px;
+  width: 26px;
+}
+.ConnectionList-title {
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+  padding: 10px 5px;
+}
+.ConnectionList-title:before {
+  color: #666;
+  display: inline-block;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  width: 26px;
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ConnectionList-title .Avatar {
+  margin: 0 10px;
+}
+.GroupedConnectionList .ContactList-grid {
+  padding-bottom: 10px;
+}
+.GroupedConnectionList .ContactRow {
+  display: inline-block;
+  width: 50%;
+  padding: 2px 5px;
+}
+.GroupedConnectionList .group-header {
+  padding: 10px;
+  background-color: #fff;
+}
+.GroupedConnectionList .group-header .header-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+.GroupedConnectionList .group-header .select-all {
+  color: #7094db;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.connection-none:before {
+  display: none;
+}
+.connection-email:before {
+  background-color: #3467cb;
+  content: 'Q';
+}
+.connection-twitter:before {
+  background-color: #55acee;
+  content: 'b';
+}
+.connection-facebook:before {
+  background-color: #3a5795;
+  content: 'a';
+}
+.connection-linkedin:before {
+  background-color: #0778b4;
+  content: 'I';
+}
+.ConversationDialog {
+  left: 50% !important;
+  min-width: 500px !important;
+  top: 80px !important;
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  width: 70% !important;
+}
+.Conversation {
+  background: #fff;
+}
+.Conversation .MessageRow .Avatar,
+.Conversation .MessageRow .MessageRow-from,
+.Conversation .MessageRow .MessageRow-participants {
+  display: none;
+}
+.Conversation .MessageRow-wrapper {
+  cursor: default;
+}
+.Conversation-actions {
+  border-top: 1px solid #8bbe44;
+  padding: 8px;
+}
+.Conversation-action {
+  color: #36c;
+  cursor: pointer;
+}
+.dijitDialogUnderlay {
+  background: #000;
+}
+.FolderListContainer {
+  border: 1px solid #eee;
+}
+.FolderListContainer.is-hidden,
+.FolderListContainer .is-hidden {
+  display: none;
+}
+.FolderList {
+  border: none;
+  border-bottom: 1px solid #eee;
+}
+.FolderList:last-of-type {
+  border-bottom: none;
+}
+.Folder {
+  background-color: #fff;
+  color: #666;
+  cursor: pointer;
+  font-size: 1rem;
+  height: 40px;
+  position: relative;
+  z-index: 1;
+}
+.Folder.is-highlighted,
+.Folder:hover {
+  background-color: rgba(139,190,68,0.1);
+  color: #8bbe44;
+}
+.Folder.is-highlighted > .Folder-unreadCount,
+.Folder:hover > .Folder-unreadCount {
+  background-color: #8bbe44;
+}
+.Folder:before {
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.285714285714286rem;
+  line-height: 40px;
+  position: absolute;
+  left: 10px;
+  z-index: -1;
+}
+.Folder-link {
+  display: inline-block;
+  line-height: 40px;
+  padding-left: 45px;
+}
+.Folder-unreadCount {
+  background-color: #666;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 0.857142857142857rem;
+  padding: 1px 5px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: -1;
+}
+.FolderList.is-unreadCountHidden .Folder-unreadCount {
+  display: none;
+}
+.Folder--shared:after,
+.Folder--business:after {
+  color: #ccc;
+  font-size: 0.857142857142857rem;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ContextMenu--folder {
+  width: 230px;
+}
+.ContextMenu--folder .FolderList-group {
+  max-height: 320px;
+  overflow-y: auto;
+}
+.FolderPaneFooter {
+  -webkit-box-shadow: 0 -1px 4px 0 #ccc;
+  box-shadow: 0 -1px 4px 0 #ccc;
+  color: #ccc;
+  height: 68px;
+  padding-top: 8px;
+  text-align: center;
+}
+.MasterSearch {
+  height: 30px;
+  max-width: 770px;
+  width: 100%;
+}
+.MasterSearch .search-container {
+  background-color: #97c457;
+}
+.MasterSearch .search-container:before {
+  color: #fff;
+  top: 8px;
+  z-index: 1;
+}
+.MasterSearch .dijitInputContainer {
+  height: 30px;
+}
+.MasterSearch .dijitTextBox {
+  border: none;
+  width: 770px;
+}
+.MasterSearch .dijitInputInner,
+.MasterSearch .dijitPlaceHolder {
+  color: #fff;
+  font-style: normal;
+  line-height: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 10px 0 30px !important;
+}
+.ContactList--autocomplete {
+  border: 1px solid #eee;
+  border-top: 0;
+  -webkit-box-shadow: 0 2px 2px #eee;
+  box-shadow: 0 2px 2px #eee;
+  color: #000;
+  width: 100%;
+}
+.ContactList--autocomplete .is-highlighted {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
+}
+.MessageActions {
+  height: 40px;
+}
+.MessageActions.is-hidden {
+  display: none;
+}
+.MessageActions .messageAction {
+  color: #ccc;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 21px;
+  height: 40px;
+  padding: 8px;
+}
+.MessageActions .DropDownContainer ul {
+  width: 170px;
+}
+.MessageActions .messageAction:hover,
+.MessageActions .DropDown.open .messageAction {
+  color: #999;
+}
+.header .MessageActions .messageAction {
+  color: #fff;
+}
+.header .MessageActions .messageAction:hover,
+.header .MessageActions .DropDown.open .messageAction {
+  color: #e6e6e6;
+}
+.MessageFilters {
+  font-size: 0.9em;
+  padding-bottom: 0;
+  padding-top: 40px;
+  position: relative;
+/**
+	 * Animating the padding-bottom property allows sort/filter bar to be faded into view
+	 * without it taking up space while it is hidden.
+	 */
+  -webkit-transition: padding-bottom 0.3s ease;
+  -moz-transition: padding-bottom 0.3s ease;
+  -o-transition: padding-bottom 0.3s ease;
+  -ms-transition: padding-bottom 0.3s ease;
+  transition: padding-bottom 0.3s ease;
+}
+.MessageFilters.is-open {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+}
+.MessageFilters.is-open .MessageFilters-menu {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.MessageFilters.is-inSearchMode .right {
+  display: none;
+}
+.MessageFilters-toggler {
+  color: #fff;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  text-shadow: #666 0 0 3px;
+  top: 10px;
+}
+.MessageFilters-toggler,
+.MessageFilter {
+  cursor: pointer;
+}
+.MessageFilters-toggler:after,
+.MessageFilter--dropdown:after {
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.5em;
+  position: relative;
+  top: 2px;
+}
+.MessageFilters-menu {
+  background: #fff;
+  -webkit-box-shadow: 0 2px 2px #ccc;
+  box-shadow: 0 2px 2px #ccc;
+  color: #666;
+  height: 40px;
+  line-height: 40px;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  position: absolute;
+  -webkit-transition: opacity 0.3s ease;
+  -moz-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  -ms-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  width: 100%;
+}
+.MessageFilter {
+  display: inline-block;
+  padding: 0 10px;
+}
+.MessageFilter-list-item {
+  line-height: 1;
+  padding: 0;
+}
+.MessageFilter-list-item .dijitButton,
+.MessageFilter-list-item .dijitButtonNode {
+  border: 0;
+  margin: 0;
+}
+.MessageFilter-list-item .dijitButton {
+  display: block;
+  padding: 12px;
+}
+.is-filtered--allMessages .MessageFilter--all,
+.is-filtered--myMessages .MessageFilter--my,
+.is-filtered--newMessages .MessageFilter--new,
+.is-filtered--allResults .MessageFilter--allResults,
+.is-filtered--from .MessageFilter--from,
+.is-filtered--to .MessageFilter--to,
+.is-filtered--subject .MessageFilter--subject,
+.is-filtered--attachments .MessageFilter--attachments {
+  background: #36c;
+  color: #fff;
+}
+.MessageFilters-dropDownActions {
+  background: #fff;
+  border-top: 1px solid #ddd;
+  bottom: 0;
+  height: 41px;
+  left: 0;
+  padding: 5px;
+  position: absolute;
+  width: 100%;
+}
+.MessageFilters-dropDownActions .dijitButton,
+.MessageFilters-dropDownActions .dijitButtonNode {
+  border: 0;
+  margin: 0;
+  vertical-align: baseline;
+}
+.MessageFilters-dropDownActions .dijitButton {
+  background: #36c;
+  color: #fff;
+  line-height: 30px;
+  padding: 0 15px;
+}
+.MessageNotification {
+  background-color: #eee;
+  border: 1px solid #fff;
+  color: #333;
+  cursor: pointer;
+  font-size: 0.857142857142857rem;
+  height: 40px;
+  overflow: hidden;
+  text-align: center;
+  -webkit-transition: height 0.75s ease;
+  -moz-transition: height 0.75s ease;
+  -o-transition: height 0.75s ease;
+  -ms-transition: height 0.75s ease;
+  transition: height 0.75s ease;
+  width: 100%;
+}
+.MessageNotification.is-hidden {
+  border: 0;
+  display: inherit;
+  height: 0px;
+}
+.MessageNotification-total,
+.MessageNotification-connection {
+  display: inline-block;
+  line-height: 40px;
+  margin-right: 15px;
+}
+.MessageNotification-total:before,
+.MessageNotification-connection:before {
+  display: inline-block;
+  position: relative;
+}
+.MessageNotification-total:before {
+  font-size: 1rem;
+  margin-right: 5px;
+  top: 2px;
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.MessageNotification-total:after {
+  content: ':';
+}
+.MessageNotification-connection {
+  position: relative;
+}
+.MessageNotification-connection:before {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 0.642857142857143rem;
+  margin-right: 5px;
+  padding: 3px;
+  font-family: 'uib-services-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.MessageNotification-connection.is-hidden {
+  display: none;
+}
+.NotificationList-container,
+.NotificationList {
+  background-color: #fff;
+  color: #666;
+  font-weight: 200;
+  height: 75vh;
+  min-height: 350px;
+  overflow: hidden;
+  padding-bottom: 40px;
+  position: relative;
+  text-align: left;
+  width: 340px;
+}
+.NotificationList-container {
+  border: 1px solid #eee;
+  -webkit-box-shadow: 0 2px 2px #eee;
+  box-shadow: 0 2px 2px #eee;
+}
+.NotificationList {
+  border: 0;
+  overflow-y: scroll;
+}
+.NotificationList-markAllAsRead {
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  bottom: 0;
+  color: #36c;
+  cursor: pointer;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+.Notification-toggleStatus {
+  color: #36c;
+  display: none;
+  font-size: 0.8em;
+  position: absolute;
+  right: 5px;
+  top: 1px;
+}
+.Notification {
+  background-color: #eee;
+  border-bottom: 1px solid #fff;
+  min-height: 46px;
+  padding: 10px 25px 10px 41px;
+  position: relative;
+}
+.Notification .Avatar {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.Notification.is-read {
+  background-color: #fff;
+  border-bottom-color: #eee;
+}
+.Notification:hover {
+  background-color: #f3f9ec;
+  cursor: pointer;
+}
+.Notification:hover .Notification-toggleStatus {
+  display: inherit;
+}
+.NotificationList .dgrid-content div:nth-last-child(2) {
+  border-bottom: 0;
+}
+.Notification-subject,
+.Notification-message,
+.Notification-date {
+  margin: 0 0 5px 0;
+}
+.Notification-message {
+  font-size: 0.95em;
+  line-height: 1.2em;
+  height: 2.4em;
+  overflow: hidden;
+  position: relative;
+}
+.Notification-message:after {
+  background: inherit;
+  bottom: 0.1em;
+  content: '\02026';
+  position: absolute;
+  right: 4px;
+}
+.Notification-date {
+  color: #999;
+  font-size: 0.9em;
+}
+.QuickReply {
+  color: #666;
+  padding: 10px;
+}
+.QuickReply [class^="icon-app-"],
+.QuickReply .DropDown {
+  cursor: pointer;
+}
+.QuickReply [class^="icon-app-"] {
+  color: #ccc;
+}
+.QuickReply .icon-app-arrows-expand {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.QuickReply .icon-app-delete {
+  font-size: 18px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.QuickReply .dijitButton {
+  background-color: #36c;
+  color: #fff;
+  padding: 6px;
+}
+.QuickReply .dijitButtonNode {
+  border: none;
+}
+.QuickReply .dijitButtonContents:focus,
+.QuickReply .dijitButtonNode:focus,
+.QuickReply .dijitButtonText:focus {
+  outline: none;
+}
+.QuickReply .DropDown.open .LabelContainer {
+  background-color: #eee;
+}
+.QuickReply textarea {
+  border: none;
+  color: #666;
+  font: 1em/1.3 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  height: 80px;
+  margin: 8px 0;
+  resize: none;
+}
+.QuickReply .MessageComposition-actions {
+  height: 40px;
+  padding: 10px 0 0;
+}
+.QuickReply .MessageComposition-action--trash {
+  bottom: 0;
+  right: 0;
+}
+.QuickReply_top {
+  position: relative;
+}
+.QuickReply_top .LabelContainer {
+  padding: 6px;
+}
+.QuickReply_replyIcon {
+  font-size: 18px;
+}
+.QuickReply_recipientList {
+  color: #36c;
+}
+.QuickReply_action0-0.item,
+.QuickReply_action1-1.item,
+.QuickReply_action0-0.item:before,
+.QuickReply_action1-1.item:before {
+  color: #ccc;
+  cursor: default;
+}
+.RecipientList_SelectAllNone {
+  color: #36c;
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px;
+}
+.MoveToFolderCheckbox,
+.RecipientCheckbox {
+  cursor: pointer;
+}
+.MoveToFolderCheckbox:before,
+.RecipientCheckbox:before {
+  border: 2px solid #666;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  color: #666;
+  content: '';
+  display: inline-block;
+  height: 12px;
+  line-height: 12px;
+  margin-right: 5px;
+  position: relative;
+  right: 2px;
+  top: 3px;
+  width: 12px;
+}
+.MoveToFolderCheckbox.is-checked-true:before,
+.RecipientCheckbox.is-checked-true:before {
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '5';
+  display: inline-block;
+  font-size: 0.7em;
+  height: 12px;
+  line-height: 12px;
+  text-align: center;
+  top: 0;
+  width: 12px;
+}
+.RecipientsInput {
+  padding: 6px;
+}
+.RecipientsInput .MasterSearch {
+  display: inline-block;
+  width: auto;
+}
+.RecipientsInput .search-container {
+  background-color: #fff;
+  width: 300px;
+}
+.RecipientsInput .search-container:before {
+  content: '';
+}
+.RecipientsInput .search-container .dijitInputField {
+  padding: 0;
+  width: auto;
+}
+.RecipientsInput .search-container .dijitInputInner,
+.RecipientsInput .search-container .dijitPlaceHolder {
+  color: #000;
+  padding: 0 !important;
+}
+.RecipientsList {
+  display: inline-block;
+  line-height: 2.5em;
+  margin: 0;
+  padding-left: 0;
+}
+.RecipientsList-recipient {
+  display: inline-block;
+  padding: 0 4px;
+}
+.ContactList--recipients,
+.ConnectionList--recipient {
+  -webkit-box-shadow: 0 2px 2px #ddd;
+  box-shadow: 0 2px 2px #ddd;
+  position: absolute;
+  z-index: 999;
+}
+.ContactList--recipients {
+  width: 300px;
+}
+.ConnectionList--recipient {
+  border: 1px solid #ddd;
+  display: none;
+}
+.ConnectionList--recipient.is-open {
+  display: block;
+}
+.tooltip-container {
+  position: absolute;
+  padding: 10px;
+  z-index: 99;
+  background-color: #fff;
+  color: #000;
+  -webkit-box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+}
+.MessageList {
+  background: #fff;
+  height: auto;
+}
+.MessageList .dgrid {
+  border: 0;
+  height: auto;
+}
+.MessageList .dgrid .dgrid-scroller {
+  max-height: 30em;
+  overflow-y: auto;
+}
+.MessageList.is-inSearchMode .Attachments {
+  display: block;
+}
+.MessageRow {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+.MessageRow.is-selected {
+  background: #f3f9ec;
+}
+.MessageRow.is-unread .MessageRow-participants,
+.MessageRow.is-unread .MessageRow-date,
+.MessageRow.is-unread .MessageRow-subject {
+  font-weight: bold;
+}
+.MessageRow.is-forwarded .MessageRow-ancillary:before,
+.MessageRow.is-replied .MessageRow-ancillary:before {
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+.MessageRow .Attachments--preview {
+  display: none;
+  margin-left: 30%;
+}
+.MessageRow-wrapper {
+  background: inherit;
+  cursor: pointer;
+  height: 40px;
+  padding: 0 10px;
+  position: relative;
+}
+.MessageRow-wrapper .Avatar {
+  margin-right: 10px;
+}
+.MessageRow-wrapper .MessageActions {
+  background: inherit;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+.MessageRow-wrapper .MessageActions .messageAction:before {
+  vertical-align: top;
+}
+.MessageRow-participants,
+.MessageRow-ancillary,
+.MessageRow-details,
+.MessageRow-details-item,
+.MessageRow-star {
+  display: inline-block;
+  line-height: 40px;
+  padding-right: 10px;
+}
+.MessageRow-star {
+  cursor: pointer;
+  display: inline-block;
+  visibility: hidden;
+}
+.MessageRow-star:before {
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ccc;
+  font-size: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+}
+.MessageRow-star:hover:before {
+  color: #666;
+}
+.MessageRow:hover .MessageRow-star {
+  visibility: visible;
+}
+.MessageRow.is-starred .MessageRow-star {
+  visibility: visible;
+}
+.MessageRow.is-starred .MessageRow-star:before {
+  color: #ff9a00;
+}
+.MessageRow-label {
+  color: #8bbe44;
+  font-size: 0.9em;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.MessageRow-label--draft {
+  color: #f30;
+}
+.MessageRow-participants {
+  width: 25%;
+}
+.MessageRow-participantCount {
+  color: #999;
+  font-size: 0.85em;
+  font-weight: normal;
+}
+.MessageRow-details {
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-box;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding-right: 20px;
+  width: 60%;
+}
+.MessageRow-details-item {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  padding-right: 5px;
+}
+.MessageRow-details-item:last-child {
+  padding-right: 0;
+}
+.MessageRow-from,
+.MessageRow-subject {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+  white-space: nowrap;
+}
+.MessageRow-from {
+  display: inline-block;
+  max-width: calc(100% - 46px);
+}
+.MessageRow-subject {
+  margin: 0;
+  max-width: 100%;
+}
+.MessageRow-attachmentIcons:before {
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ccc;
+}
+.MessageRow-ancillary {
+  position: absolute;
+  right: 0;
+}
+.MessageRow-privacy {
+  margin-left: 3px;
+  z-index: 1;
+}
+.MessageRow-privacy:before,
+.MessageRow-privacy:after {
+  font-family: 'uib-app-related-icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+}
+.MessageRow-privacy.has-comments {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  width: 18px;
+}
+.MessageRow-privacy.has-comments:before {
+  color: #fff;
+  font-size: 0.55em;
+  position: relative;
+  top: -1px;
+  z-index: 1;
+}
+.MessageRow-privacy.has-comments:after {
+  color: #ff9a00;
+  font-size: 1.3em;
+  line-height: 40px;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+}
+.ConversationList .dgrid {
+  height: auto;
+}
+.ConversationRow {
+  background: #fff;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-top: 5px;
+}
+.ConversationRow-header {
+  padding: 0 10px;
+  position: relative;
+}
+.ConversationRow-header .Avatar {
+  position: absolute;
+  top: 5px;
+}
+.ConversationRow-participants {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  font-size: 18px;
+  margin-left: 34px;
+  width: 700px;
+}
+.ConversationRow-emails {
+  font-size: 12px;
+  color: #aaa;
+}
+.ConversationRow-ancillary {
+  display: inline-block;
+  line-height: 40px;
+  padding-right: 5px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.ConversationRow-date {
+  position: absolute;
+  right: 25px;
+  top: -3px;
+}
+.ConversationRow-options {
+  color: #aaa;
+  cursor: pointer;
+}
+.ConversationRow-body {
+  margin-left: 10px;
+}
+.ConversationRow-viewSource {
+  text-decoration: none;
+  color: #333;
+}
+.MessageCompositionContainer {
+  left: 50%;
+  position: absolute;
+  top: 40px;
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  width: 80%;
+  z-index: 999;
+}
+.MessageComposition {
+  background-color: #fff;
+}
+.MessageComposition-dropDownBar {
+  height: 40px;
+  color: #fff;
+  position: relative;
+}
+.MessageComposition-dropDownBar .DropDown {
+  display: block;
+  width: 125px;
+  margin: 0 auto;
+  padding-left: 5px;
+  cursor: pointer;
+}
+.MessageComposition-dropDownBar .DropDown .LabelContainer {
+  height: 40px;
+  padding: 10px 5px 10px 9px;
+}
+.MessageComposition-priority {
+  color: #36c;
+  position: absolute;
+  right: 10px;
+  font-size: 12px;
+}
+.MessageComposition-priority-list {
+  position: absolute;
+  left: 170px;
+  top: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-box-shadow: 0 2px 2px #ddd;
+  box-shadow: 0 2px 2px #ddd;
+}
+.MessageComposition-draftSaveOnClose {
+  position: absolute;
+  right: 10px;
+}
+li.MessageComposition-DropDown-item {
+  width: 170px;
+  color: #888;
+}
+li.MessageComposition-DropDown-item.selected {
+  color: #000;
+}
+.MessageComposition-close {
+  color: #fff;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.MessageComposition-to,
+.MessageComposition-subject,
+.MessageComposition-cc,
+.MessageComposition-bcc {
+  padding-left: 10px;
+  border-bottom: 1px solid #eee;
+  color: #aaa;
+  position: relative;
+}
+.MessageComposition-to .RecipientsInput,
+.MessageComposition-cc .RecipientsInput,
+.MessageComposition-bcc .RecipientsInput {
+  display: inline-block;
+}
+.MessageComposition-to .RecipientsInput .MasterSearch,
+.MessageComposition-cc .RecipientsInput .MasterSearch,
+.MessageComposition-bcc .RecipientsInput .MasterSearch {
+  border: none;
+  color: #000;
+}
+.MessageComposition-subject {
+  padding: 10px;
+}
+.MessageComposition-subject .dijitTextBox {
+  border: none;
+  color: #000;
+  width: calc(100% - 40px);
+}
+.MessageComposition-cc-toggle,
+.MessageComposition-bcc-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.MessageComposition-cc-close,
+.MessageComposition-bcc-close {
+  position: absolute;
+  right: 20px;
+  top: -5px;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #808080;
+}
+.MessageComposition-subject .dijitPlaceHolder {
+  color: #aaa;
+  font-style: normal;
+}
+.MessageComposition-body {
+  padding: 5px;
+}
+.MessageComposition-body textarea {
+  border: none;
+  color: #333;
+  font: 1em/1.3 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  height: 500px;
+}
+.MessageComposition-actions {
+  height: 50px;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  position: relative;
+}
+.MessageComposition-actions .dijitButtonNode {
+  border: 0;
+}
+.MessageComposition-actions .dijitButton {
+  background-color: #36c;
+  color: #fff;
+  height: 30px;
+  padding: 0 8px;
+  margin: 0;
+  vertical-align: top;
+}
+.MessageComposition-actions .dijitButtonText {
+  line-height: 30px;
+}
+.MessageComposition-action {
+  display: inline-block;
+  line-height: 30px;
+  margin-right: 10px;
+  text-align: center;
+  vertical-align: top;
+}
+.MessageComposition-action:last-child {
+  margin-right: 0;
+}
+.MessageComposition-action--move .DropDown {
+  margin-left: 3px;
+}
+.MessageComposition-action--move .LabelContainer {
+  color: #36c;
+}
+.MessageComposition-action--trash {
+  bottom: 10px;
+  color: #808080;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+}

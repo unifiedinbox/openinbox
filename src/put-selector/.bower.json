@@ -1,0 +1,14 @@
+{
+  "name": "put-selector",
+  "homepage": "https://github.com/kriszyp/put-selector",
+  "version": "0.3.5",
+  "_release": "0.3.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.5",
+    "commit": "06358997b4523e03e150b40bdf666a590b72cb40"
+  },
+  "_source": "git://github.com/kriszyp/put-selector.git",
+  "_target": "0.3.5",
+  "_originalSource": "put-selector"
+}
