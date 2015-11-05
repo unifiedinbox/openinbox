@@ -1,4 +1,6 @@
-![Open Inbox](https://unifiedinbox.com/files/images/uib-2.png)
+<p align="center">
+  <img src="https://unifiedinbox.com/files/images/uib-2.png" />
+</p>
 
 ![Open Inbox Screenshot](https://unifiedinbox.com/files/images/openinbox.jpg)
 
