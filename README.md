@@ -1,4 +1,7 @@
-# Unified PRO
+![Open Inbox](https://unifiedinbox.com/files/cto_layout/img/cube.svg)
+
+![Open Inbox Screenshot]()
+
 ## Awesome messaging web client (user interface)
 ## Built on the Mayhem framework https://github.com/SitePen/mayhem
 
