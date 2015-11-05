@@ -1,9 +1,10 @@
-![Open Inbox](https://unifiedinbox.com/files/cto_layout/img/cube.svg)
+![Open Inbox](https://unifiedinbox.com/files/images/uib-2.png)
 
-![Open Inbox Screenshot]()
+![Open Inbox Screenshot](https://unifiedinbox.com/files/images/openinbox.jpg)
 
 ## Awesome messaging web client (user interface)
-## Built on the Mayhem framework https://github.com/SitePen/mayhem
+## Built on the [Mayhem framework](https://github.com/SitePen/mayhem)
+## Visit the [community page](openinbox.org)
 
 Copyright (C) 2015 Unified Inbox
 
